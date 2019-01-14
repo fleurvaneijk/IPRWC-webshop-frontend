@@ -14,9 +14,9 @@ export class ApiService {
     private createQueryString(queryParameters: Object): string {
         let queryString = '';
         if (typeof queryParameters === 'object') {
-          for (let key in queryParameters) {
-            let value = queryParameters[key];
-            let prefix = queryString.length === 0 ? '?' : '&';
+          for (const key in queryParameters) {
+            const value = queryParameters[key];
+            const prefix = queryString.length === 0 ? '?' : '&';
             queryString += `${prefix}${key}=${value}`;
             }
         }
@@ -24,7 +24,7 @@ export class ApiService {
     }
 
     private createURI(path: string, queryParameters: Object): string {
-        let queryString = this.createQueryString(queryParameters);
+        const queryString = this.createQueryString(queryParameters);
         return `/api/${path}${queryString}`;
     }
 
@@ -38,8 +38,8 @@ export class ApiService {
     }
 
     public get<T>(path: string, queryParameters?: Object): Observable<T> {
-        let uri = this.createURI(path, queryParameters);
-        let headers = this.createRequestHeaders();
+        const uri = this.createURI(path, queryParameters);
+        const headers = this.createRequestHeaders();
 
         return this.http.get<T>(uri, { headers: headers });
     }
