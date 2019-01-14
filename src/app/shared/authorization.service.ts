@@ -1,3 +1,43 @@
+// import {OnInit} from '@angular/core';
+// import {HttpHeaders} from '@angular/common/http';
+// import {AppComponent} from '../app.component';
+//
+// export class AuthorisationService implements OnInit {
+//
+//   public static header: HttpHeaders = new HttpHeaders();
+//   public static email: string;
+//   public static isLoggedIn = false;
+//   public static role: string;
+//   ngOnInit() {
+//
+//   }
+//
+//   public setHeader(emailAddress: string, password: string) {
+//
+//     const authString = 'Basic ' + btoa(emailAddress + ':' + password);
+//     AuthorisationService.header = AuthorisationService.header.set('Authorization', authString);
+//
+//   }
+//
+//   public retrieveCookie() {
+//     AuthorisationService.header = AuthorisationService.header.set('Authorization', AppComponent.cookieService.get('header'));
+//     AuthorisationService.email = String(AppComponent.cookieService.get('email'));
+//     AuthorisationService.role = String(AppComponent.cookieService.get(('role')));
+//   }
+//
+//   public saveCookie() {
+//     AppComponent.cookieService.set('header', AuthorisationService.header.get('Authorization'));
+//     AppComponent.cookieService.set('email', String(AuthorisationService.email));
+//     AppComponent.cookieService.set('role', String(AuthorisationService.role));
+//   }
+//   public logout() {
+//     AppComponent.cookieService.deleteAll();
+//     AuthorisationService.header = new HttpHeaders();
+//     AuthorisationService.email = null;
+//     AuthorisationService.isLoggedIn = false;
+//     AuthorisationService.role = null;
+//   }
+// }
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
