@@ -6,8 +6,8 @@ import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user-list',
-  templateUrl: 'app/user/list/list.component.html',
-  styleUrls: ['app/user/list/list.component.css'],
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.css'],
 })
 export class ListComponent {
   public displayedColumns = ['fullName', 'postcode', 'streetnumber', 'emailAddress'];

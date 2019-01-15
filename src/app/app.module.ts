@@ -9,6 +9,7 @@ import { HomeModule } from './home/home.module';
 import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   imports: [
@@ -17,10 +18,12 @@ import { AppComponent } from './app.component';
     PublicModule,
     SharedModule,
     HomeModule,
-    UserModule
+    UserModule,
   ],
   exports: [ PublicModule ],
-  declarations: [ AppComponent ],
+  declarations: [
+    AppComponent,
+    PageNotFoundComponent],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

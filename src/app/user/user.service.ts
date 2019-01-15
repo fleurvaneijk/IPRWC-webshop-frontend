@@ -22,8 +22,6 @@ export class UserService {
   public register(user: User): void {
     const data = {
         fullName: user.fullName,
-        postcode: user.postcode,
-        streetnumber: user.streetnumber,
         emailAddress: user.emailAddress,
         password: user.password
       };

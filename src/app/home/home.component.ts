@@ -6,8 +6,8 @@ import { User } from '../user/user';
 
 @Component({
   selector: 'app-home',
-  templateUrl: 'app/home/home.component.html',
-  styleUrls: ['app/home/home.component.css'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
   public authenticated = false;

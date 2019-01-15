@@ -10,9 +10,16 @@ import { LoginComponent } from './login/login.component';
 import { ListComponent } from './list/list.component';
 
 @NgModule({
-  imports: [ PublicModule, SharedModule ],
-  exports: [ LoginComponent ],
-  declarations: [ RegisterComponent, LoginComponent, ListComponent ],
+  imports: [
+    PublicModule,
+    SharedModule,
+  ],
+  exports: [ LoginComponent, RegisterComponent, ListComponent ],
+  declarations: [
+    RegisterComponent,
+    LoginComponent,
+    ListComponent,
+  ],
   providers: [ UserService ]
 })
 export class UserModule { }

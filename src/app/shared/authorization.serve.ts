@@ -7,11 +7,11 @@ export class Authorization {
   public ding$ = new Subject<boolean>();
   logedIn = false;
 
-  isLogedIn() {
+  isLoggedIn() {
     this.logedIn = true;
   }
 
-  getLogedin() {
+  getLoggedin() {
     return this.logedIn;
   }
 }

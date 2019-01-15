@@ -13,7 +13,6 @@ import {
   MatInputModule
 } from '@angular/material';
 
-import 'hammerjs';
 
 export const publicModules =
   [
