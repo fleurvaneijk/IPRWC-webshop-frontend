@@ -1,50 +1,152 @@
-body
-{
-  margin: 0px;
-  padding: 0px;
-  font-family: sans-serif;
-}
-
-main
-{
-  padding: 20px;
-}
-
-a
-{
-  color: #4286f4;
-  text-decoration: none;
-}
-
-mat-card
-{
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-mat-card-title h1
-{
+html, body {
   margin: 0;
-  font-size: 20px;
-  font-weight: bold;
+  padding: 0;
+  font-family: "Arial Rounded MT Bold", sans-serif;
 }
 
-mat-form-field
-{
-  margin-bottom: 5px;
+body {
+  background-image: url('assets/swopa2.jpg');
+  background-size: cover;
 }
 
-.clickable
-{
-  cursor: pointer;
+/*----------------------------------------------*/
+
+main {
+  max-width: 1000px;
+  margin: 2em auto 4em;
+  /*padding-top: 104px;*/
 }
 
-.full-width
-{
+p {
+  font-size: 1.2em;
+}
+
+
+/* CONTACT ------- CONTACT ------- CONTACT ------- CONTACT ------- CONTACT ------- CONTACT ------- CONTACT ------- CONTACT ------- CONTACT */
+
+label {
+  display: block;
+  color: grey;
+  margin: 1em 0 0.3em;
+}
+input, textarea {
+  font-family: "Courier New", sans-serif;
+  font-size: 1em;
+  padding: 0.3em;
+  border: 1px solid black;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+
+textarea {
+  padding-bottom: 8em;
+  margin-bottom: 1.5em;
+}
+
+input#verstuur:hover {
+  background-color: green;
+  color: white;
+}
+
+form {
+  width: 500px;
+  float: left;
+}
+
+div#contactgegevens {
+  border-radius: 8px;
+  float: left;
+  margin: 0;
+  margin-left: 10%;
+  margin-top: 80px;
+  padding: 0.5em 1em 1em;
+  background-color: #C68F51;
+}
+
+/* FOOTER ------- FOOTER ------- FOOTER */
+footer {
+  color: black;
+  text-align: center;
+}
+footer#contact {
+  position: fixed;
+  bottom: 0;
   width: 100%;
 }
 
-.fill-remaining-space
-{
-  flex: 1 1 auto;
+/* MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA ------- MEDIA */
+
+@media (max-width: 1000px) {
+  header {
+    position: relative;
+  }
+
+  main
+  {
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+
+  nav li {
+    display: block;
+    text-align: center;
+  }
+
+  nav ul img {
+    float: none;
+    margin: 0 auto;
+    padding: 0;
+    padding-bottom: 10px;
+  }
+
+  form {
+    float: none;
+  }
+
+  div#contactgegevens {
+    display: block;
+    bottom: 0;
+    width: 100%;
+    border-radius: 0;
+    margin: 50px 0;
+    margin-right: 10px;
+    padding: 0;
+    text-align: center;
+    background-color: transparent;
+  }
+
+  footer#contact {
+    position: relative;
+    color: black;
+    text-align: center;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1000px) {
+  ul#shop
+  {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0 1em;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 600px) {
+  ul#shop {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 1em;
+  }
+}
+
+@media (max-width: 400px) {
+  ul#shop {
+    grid-template-columns: 1fr;
+    margin: 0 1em;
+  }
+
+  input, textarea {
+    max-width: 300px;
+  }
 }

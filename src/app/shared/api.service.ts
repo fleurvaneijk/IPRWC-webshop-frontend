@@ -6,6 +6,9 @@ import { AuthorizationService } from './authorization.service';
 
 @Injectable()
 export class ApiService {
+
+  private endpoint = 'http://localhost:8080/api';
+
   constructor(private http: HttpClient, private authService: AuthorizationService) {
 
   }
@@ -41,11 +44,11 @@ export class ApiService {
     return headers;
   }
 
-  public get<T>(path: string, queryParameters?: Object): Observable<any> {
+  public get<Object>(path: string, queryParameters?: Object): Observable<any> {
     const uri = this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
 
-    return this.http.get<T>(uri, { headers: headers });
+    return this.http.get<Object>(uri, { headers: headers });
   }
 
   public post<T>(path: string, data: Object, queryParameters?: Object): Observable<any> {

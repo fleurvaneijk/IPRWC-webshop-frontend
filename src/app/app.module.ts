@@ -10,6 +10,10 @@ import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {ShopComponent} from './shop/shop.component';
+import { ProductComponent } from './shop/product/product.component';
+import {ProductService} from './shop/product/product.service';
+
 
 @NgModule({
   imports: [
@@ -23,7 +27,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   exports: [ PublicModule ],
   declarations: [
     AppComponent,
-    PageNotFoundComponent],
+    PageNotFoundComponent,
+    ShopComponent,
+    ProductComponent
+  ],
+  providers: [
+    ProductService
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -5,7 +5,7 @@ import { PublicModule } from '../public.module';
 import { AuthorizationService } from './authorization.service';
 import { ApiService } from './api.service';
 
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   imports: [ PublicModule ],

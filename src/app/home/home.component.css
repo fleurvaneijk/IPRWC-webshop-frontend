@@ -1,0 +1,19 @@
+/* HOME ------- HOME ------- HOME ------- HOME ------- HOME ------- HOME -------- HOME ------- HOME ------- HOME ------- HOME ------- HOME */
+
+main {
+  background-color: whitesmoke;
+  height: 100%;
+}
+
+img#toonbank {
+  width: 100%;
+}
+
+article#home {
+  padding: 0 0.9em;
+}
+
+img {
+  width: 100%;
+  object-position: center;
+}

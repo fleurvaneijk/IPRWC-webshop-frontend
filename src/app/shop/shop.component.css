@@ -1,0 +1,16 @@
+a.shop {
+  text-decoration: none;
+  color: black;
+}
+
+ul#shop {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 30px;
+  grid-row-gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 20px;
+}
+

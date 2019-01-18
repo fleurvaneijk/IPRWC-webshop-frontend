@@ -1,0 +1,77 @@
+/* LOGO ------- LOGO ------- LOGO ------- LOGO*/
+img#logo:hover {
+  animation: wiggle 0.6s infinite;
+  transition: 0.5s ease;
+}
+
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  8% { transform: rotate(1.5deg); }
+  16% { transform: rotate(3deg); }
+  24% { transform: rotate(5deg); }
+  32% { transform: rotate(3deg); }
+  40% { transform: rotate(1.5deg); }
+  48% { transform: rotate(0deg); }
+  56% { transform: rotate(-1.5deg); }
+  64% { transform: rotate(-3deg); }
+  72% { transform: rotate(-5deg); }
+  80% { transform: rotate(-3deg); }
+  88% { transform: rotate(-1.5deg); }
+  96% { transform: rotate(0deg); }
+}
+
+header {
+  width: 100%;
+  background-color: #0d0d0d;
+}
+
+header img#logo {
+  width: 180px;
+}
+
+/* NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE */
+/*de hele lijst*/
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+
+nav ul li a {
+  display: inline-block;
+}
+
+/*elke individuele optie*/
+nav li {
+  text-decoration: none;
+  font-weight: bold;
+  display: inline;
+  font-size: 2em;
+  margin: 0;
+  transition: all 0.1s ease;
+}
+
+nav li:hover {
+  text-shadow: 2px 8px 6px lightgrey,
+  0 -5px 35px lightgrey;
+}
+nav li a .routerLinkActive {
+  color: green;
+}
+
+/*elke indivuduele tekst van de optie*/
+nav a {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  border-color: black;
+  padding: 0 20px;
+}
+
+nav li img {
+  margin-right: 100px;
+}
