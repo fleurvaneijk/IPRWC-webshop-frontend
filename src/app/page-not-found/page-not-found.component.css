@@ -1,6 +1,8 @@
 #notfound{
   position: relative;
   height: 100vh;
+  background-color: whitesmoke;
+  color: black;
 }
 .notfound{
   max-width: 767px;
@@ -22,14 +24,11 @@
   line-height: 150px;
   margin-bottom: 25px;
 }
-.notfound .notfound-404 h1{
+.notfound-404 h1{
   font-family: 'Titillium Web', sans-serif;
   font-size: 126px;
   font-weight: 900;
   margin: 0;
   text-transform: uppercase;
-}
-.notfound .notfound-404 h1, .notfound h2, .notfound p{
-  color: pink;
 }
 

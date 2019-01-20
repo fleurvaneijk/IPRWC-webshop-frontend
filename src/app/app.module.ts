@@ -11,8 +11,9 @@ import { UserModule } from './user/user.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {ShopComponent} from './shop/shop.component';
-import { ProductComponent } from './shop/product/product.component';
-import {ProductService} from './shop/product/product.service';
+import { ProductComponent } from './product/product.component';
+import {ProductService} from './product/product.service';
+import { ProductInfoComponent } from './product/product-info/product-info.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {ProductService} from './shop/product/product.service';
     AppComponent,
     PageNotFoundComponent,
     ShopComponent,
-    ProductComponent
+    ProductComponent,
+    ProductInfoComponent
   ],
   providers: [
     ProductService

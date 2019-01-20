@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { ApiService } from '../../shared/api.service';
-import { AuthorizationService } from '../../shared/authorization.service';
+import { ApiService } from '../shared/api.service';
+import { AuthorizationService } from '../shared/authorization.service';
 import {Product} from './product';
 import {first, map} from 'rxjs/operators';
 import 'rxjs-compat/add/operator/map';
-import {User} from '../../user/user';
+import {User} from '../user/user';
 
 @Injectable()
 export class ProductService {
@@ -21,7 +21,7 @@ export class ProductService {
 
   public getAllProducts(): Observable<Product[]> {
     const uri = 'products';
-    return this.api.get<Product[]>(uri).pipe();
+    return this.api.get<Product[]>(uri);
       // .map(
       //   (response: any) => {
       //     const data = response.json();
@@ -43,5 +43,11 @@ export class ProductService {
     //       }
     //   );
     // return null;
+  }
+
+  public getProduct(id: number): Observable<Product> {
+      const uri = '/api/product/' + id;
+      console.log(uri);
+      return this.api.get<Product>(uri);
   }
 }

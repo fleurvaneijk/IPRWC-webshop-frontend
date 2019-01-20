@@ -1,9 +1,8 @@
 
 <ul id="shop">
-  <app-product
-    *ngFor="let product of products"
-    [product]="product"
-  ></app-product>
+  <li *ngFor="let product of products" routerLink="/products/{{ product.id }}">
+    <app-product [product]="product"></app-product>
+  </li>
   <!--<li>-->
     <!--<a class="shop">-->
       <!--<img src="assets/boodschappen_mand.jpg" alt="" />-->
@@ -12,3 +11,4 @@
     <!--</a>-->
   <!--</li>-->
 </ul>
+

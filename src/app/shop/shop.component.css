@@ -1,8 +1,3 @@
-a.shop {
-  text-decoration: none;
-  color: black;
-}
-
 ul#shop {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -14,3 +9,20 @@ ul#shop {
   padding-top: 20px;
 }
 
+li {
+  border-radius: 8px;
+  background-color: whitesmoke;
+  border-color: black;
+  padding: 0.4em;
+  font-size: 0.8em;
+  margin-left: 0.4em;
+  position: relative;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+
+li:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px 0  gray;
+}
