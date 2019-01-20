@@ -26,8 +26,8 @@ export class UserService {
         password: user.password
       };
 
-    this.api.post<void>('users', data).subscribe
-    (
+    this.api.post<void>('users', data)
+      .subscribe(
       data => {
         this.goHome();
       },

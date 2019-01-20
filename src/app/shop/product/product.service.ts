@@ -5,29 +5,43 @@ import { Observable } from 'rxjs/Observable';
 import { ApiService } from '../../shared/api.service';
 import { AuthorizationService } from '../../shared/authorization.service';
 import {Product} from './product';
-import {first} from 'rxjs/operators';
-
+import {first, map} from 'rxjs/operators';
+import 'rxjs-compat/add/operator/map';
+import {User} from '../../user/user';
 
 @Injectable()
 export class ProductService {
+
+  products: Product[] = [];
+
   constructor(private api: ApiService,
               private authService: AuthorizationService,
               private router: Router) {
   }
 
-  public getAllProducts() {
-    const uri = 'retrieveAll';
-    return this.api.get(uri).pipe(first())
-      .subscribe(
-        data => {
-          console.log('Path is correct');
-          console.log(data);
-        },
-        data => {
-          console.log('Path is incorrect');
-        }
-      );
+  public getAllProducts(): Observable<Product[]> {
+    const uri = 'products';
+    return this.api.get<Product[]>(uri).pipe();
+      // .map(
+      //   (response: any) => {
+      //     const data = response.json();
+      //     console.log(data);
+      //     return data;
+      //   }
+      // )
+    //   .subscribe(
+    //   data => {
+    //       console.log('Path is correct');
+    //       // console.log(data);
+    //       this.products = data;
+    //       console.log(this.products);
+    //       return this.products;
+    //       },
+    //   error => {
+    //       console.log('Path is incorrect');
+    //       // console.log(data);
+    //       }
+    //   );
+    // return null;
   }
-
-
 }

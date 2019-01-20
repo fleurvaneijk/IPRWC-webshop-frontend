@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "workshop-client": {
+    "webshop-client": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,13 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/workshop-client",
+            "outputPath": "dist/webshop-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
@@ -57,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "workshop-client:build"
+            "browserTarget": "webshop-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "workshop-client:build:production"
+              "browserTarget": "webshop-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "workshop-client:build"
+            "browserTarget": "webshop-client:build"
           }
         },
         "test": {
@@ -102,7 +101,7 @@
         }
       }
     },
-    "workshop-client-e2e": {
+    "webshop-client-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +110,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "workshop-client:serve"
+            "devServerTarget": "webshop-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "workshop-client:serve:production"
+              "devServerTarget": "webshop-client:serve:production"
             }
           }
         },
@@ -131,5 +130,5 @@
       }
     }
   },
-  "defaultProject": "workshop-client"
+  "defaultProject": "webshop-client"
 }

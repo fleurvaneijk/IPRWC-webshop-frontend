@@ -7,7 +7,7 @@ import { AuthorizationService } from './authorization.service';
 @Injectable()
 export class ApiService {
 
-  private endpoint = 'http://localhost:8080/api';
+  private endpoint = 'http://localhost:8080';
 
   constructor(private http: HttpClient, private authService: AuthorizationService) {
 
@@ -36,37 +36,34 @@ export class ApiService {
 
   private createRequestHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-
     if (this.authService.hasAuthorization()) {
       headers = headers.set('Authorization', this.authService.createAuthorizationString());
     }
-
     return headers;
   }
 
-  public get<Object>(path: string, queryParameters?: Object): Observable<any> {
-    const uri = this.createURI(path, queryParameters);
+  public get<Object>(path: string, queryParameters?: Object) {
+    const uri = this.endpoint + this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
-
     return this.http.get<Object>(uri, { headers: headers });
   }
 
   public post<T>(path: string, data: Object, queryParameters?: Object): Observable<any> {
-    const uri = this.createURI(path, queryParameters);
+    const uri = this.endpoint + this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
 
     return this.http.post(uri, data, { headers: headers });
   }
 
   public put<T>(path: string, data: string, queryParameters?: Object): Observable<any> {
-    const uri = this.createURI(path, queryParameters);
+    const uri = this.endpoint + this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
 
     return this.http.put(uri, data, { headers: headers });
   }
 
   public delete<T>(path: string, queryParameters?: Object): Observable<any> {
-    const uri = this.createURI(path, queryParameters);
+    const uri = this.endpoint + this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
 
     return this.http.delete(uri, { headers: headers });
