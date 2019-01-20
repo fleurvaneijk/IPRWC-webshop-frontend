@@ -1,0 +1,13 @@
+article.product {
+  display: block;
+  padding: 40px 0 100px;
+  border-radius: 8px;
+  text-align: center;
+  background-color: whitesmoke;
+  height: 100%
+}
+
+figure img {
+  width: 40%;
+  border-radius: 8px;
+}

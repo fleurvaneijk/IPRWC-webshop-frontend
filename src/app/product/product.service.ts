@@ -46,8 +46,7 @@ export class ProductService {
   }
 
   public getProduct(id: number): Observable<Product> {
-      const uri = '/api/product/' + id;
-      console.log(uri);
+      const uri = 'products/' + id;
       return this.api.get<Product>(uri);
   }
 }

@@ -1,14 +1,10 @@
 
 <ul id="shop">
-  <li *ngFor="let product of products" routerLink="/products/{{ product.id }}">
+  <li
+    *ngFor="let product of products"
+    [class.selected]="product.id === selectedId"
+    routerLink="/products/{{product.id}}">
     <app-product [product]="product"></app-product>
   </li>
-  <!--<li>-->
-    <!--<a class="shop">-->
-      <!--<img src="assets/boodschappen_mand.jpg" alt="" />-->
-      <!--<h2>Boodschappen mand</h2>-->
-      <!--<span class="prijs">&euro;30,00</span>-->
-    <!--</a>-->
-  <!--</li>-->
 </ul>
 

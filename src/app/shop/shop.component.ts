@@ -7,9 +7,10 @@ import {Product} from '../product/product';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.css'],
 })
-export class ShopComponent implements OnInit{
+export class ShopComponent implements OnInit {
 
   products: Product[] = [];
+  selectedId: number;
 
   constructor(private productService: ProductService) {
 
@@ -20,6 +21,8 @@ export class ShopComponent implements OnInit{
       .subscribe(
       data => {
         this.products = data;
+        console.log(this.products);
+        console.log(this.products[1].id);
       }
       );
   }

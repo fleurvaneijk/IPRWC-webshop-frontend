@@ -16,9 +16,8 @@ export const routes: Routes =
     { path: 'login', component: LoginComponent },
     { path: 'users', component: ListComponent },
     { path: 'home', component: HomeComponent },
-    { path: 'products', component: ShopComponent, children: [
-      { path: ':id', component: ProductInfoComponent }]
-    },
+    { path: 'products', component: ShopComponent },
+    { path: 'products/:id', component: ProductInfoComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
 

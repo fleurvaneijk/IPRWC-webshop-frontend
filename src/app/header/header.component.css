@@ -20,39 +20,37 @@ img#logo:hover {
   96% { transform: rotate(0deg); }
 }
 
+header img#logo {
+  width: 80px;
+  margin: 0;
+}
+
+/* NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE */
+/*de hele lijst*/
 header {
   width: 100%;
   background-color: #0d0d0d;
 }
 
-header img#logo {
-  width: 180px;
-}
-
-/* NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE */
-/*de hele lijst*/
 nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   text-align: center;
   width: 100%;
 }
 
-nav ul li a {
-  display: inline-block;
-}
 
 /*elke individuele optie*/
 nav li {
+  display: inline-block;
   text-decoration: none;
   font-weight: bold;
-  display: inline;
   font-size: 2em;
-  margin: 0;
   transition: all 0.1s ease;
+  transform: translateY(-50%);
 }
 
 nav li:hover {
@@ -65,13 +63,14 @@ nav li a .routerLinkActive {
 
 /*elke indivuduele tekst van de optie*/
 nav a {
+  position: relative;
   display: inline-block;
   text-decoration: none;
-  color: white;
-  border-color: black;
+  color: #851b21;
+  text-shadow: -1px 0 whitesmoke, 0 1px whitesmoke, 1px 0 whitesmoke, 0 -1px whitesmoke;
   padding: 0 20px;
 }
 
-nav li img {
+nav img {
   margin-right: 100px;
 }
