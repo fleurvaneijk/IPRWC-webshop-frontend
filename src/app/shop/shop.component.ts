@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product/product.service';
 import {Product} from '../product/product';
+import {forEach} from '@angular/router/src/utils/collection';
+
+
 
 @Component({
   selector: 'app-shop',
@@ -16,13 +19,17 @@ export class ShopComponent implements OnInit {
 
   }
 
+  processProductData(data) {
+    data.map(entry => {
+      this.products.push(new Product(entry.product_id, entry.title, entry.description, entry.imagePath, entry.price));
+    });
+  }
+
   getAllProducts() {
     this.productService.getAllProducts()
       .subscribe(
       data => {
-        this.products = data;
-        console.log(this.products);
-        console.log(this.products[1].id);
+        this.processProductData(data);
       }
       );
   }
