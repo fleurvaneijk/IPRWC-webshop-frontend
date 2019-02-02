@@ -21,7 +21,8 @@ export class UserService {
 
   public register(user: User): void {
     console.log(user);
-    this.api.post<void>('users', user)
+    const uri = 'users';
+    this.api.post<void>(uri, user)
       .subscribe(
       data => {
         alert('Het registreren is gelukt! U kan nu inloggen');
