@@ -25,7 +25,7 @@ export class RegisterComponent {
         (<HTMLInputElement>document.getElementById('password-repeat')).value) {
       password = (<HTMLInputElement>document.getElementById('password')).value;
     } else {
-      // error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
     }
     this.user = new User(email, name, password, 'GUEST');
     this.userService.register(this.user);
