@@ -1,26 +1,6 @@
-<!--<a-->
-  <!--href="#"-->
-  <!--(click)="onSelected()"-->
-  <!--class="list-group-item clearfix">-->
-
-  <!--<div class="pull-left">-->
-    <!--<h4 class="list-group-item-heading">{{ product.title }} </h4>-->
-    <!--<p class="list-group-item-text">{{ product.price }}</p>-->
-  <!--</div>-->
-
-  <!--<span class="pull-right">-->
-        <!--<img-->
-          <!--[src]="product.imagePath"-->
-          <!--alt="{{ product.title }}"-->
-          <!--class="img-responsive"-->
-          <!--style="max-height: 50px;">-->
-  <!--</span>-->
-<!--</a>-->
-
-
 <a>
   <img
-    [src]="product.imagePath"
+    [src]="product.images[0]"
     alt="{{ product.title }}"
     class="img-responsive"/>
 

@@ -5,8 +5,6 @@ import { RoutesModule } from './routes.module';
 import { PublicModule } from './public.module';
 
 import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
-import { UserModule } from './user/user.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -14,6 +12,10 @@ import {ShopComponent} from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import {ProductService} from './product/product.service';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
+import {RegisterComponent} from './user/login-register/register/register.component';
+import {LoginRegisterComponent} from './user/login-register/login-register.component';
+import {LoginComponent} from './user/login-register/login/login.component';
+import {UserService} from './user/user.service';
 
 
 @NgModule({
@@ -21,9 +23,7 @@ import { ProductInfoComponent } from './product/product-info/product-info.compon
     BrowserModule,
     RoutesModule,
     PublicModule,
-    SharedModule,
-    HomeModule,
-    UserModule,
+    SharedModule
   ],
   exports: [ PublicModule ],
   declarations: [
@@ -31,9 +31,14 @@ import { ProductInfoComponent } from './product/product-info/product-info.compon
     PageNotFoundComponent,
     ShopComponent,
     ProductComponent,
-    ProductInfoComponent
+    ProductInfoComponent,
+    RegisterComponent,
+    LoginRegisterComponent,
+    LoginComponent
   ],
   providers: [
+    ProductService,
+    UserService,
     ProductService
   ],
   bootstrap: [ AppComponent ]

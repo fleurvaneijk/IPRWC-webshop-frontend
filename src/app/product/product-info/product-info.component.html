@@ -1,7 +1,13 @@
 <main>
   <article class="product">
     <h1>{{ product.title }}</h1>
-    <figure><img [src]="product.imagePath" alt="{{product.title}}" /></figure>
+
+    <ul>
+      <li *ngFor="let image of product.images">
+        <img [src]="image" alt="{{product.title}}" class="img-responsive"/>
+      </li>
+    </ul>
+
     <p>{{ product.description }}</p>
     <p>&euro;{{ product.price }}</p>
   </article>

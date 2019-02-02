@@ -19,22 +19,23 @@ export class ShopComponent implements OnInit {
 
   }
 
-  processProductData(data) {
-    data.map(entry => {
-      this.products.push(new Product(entry.product_id, entry.title, entry.description, entry.imagePath, entry.price));
-    });
+  ngOnInit(): void {
+    this.getAllProducts();
   }
 
   getAllProducts() {
     this.productService.getAllProducts()
       .subscribe(
-      data => {
-        this.processProductData(data);
-      }
+        data => {
+          this.processProductData(data);
+        }
       );
   }
 
-  ngOnInit(): void {
-    this.getAllProducts();
+  processProductData(data) {
+    data.map(entry => {
+      this.products.push(new Product(entry.id, entry.title, entry.description, entry.images, entry.price));
+    });
+    console.log(this.products);
   }
 }

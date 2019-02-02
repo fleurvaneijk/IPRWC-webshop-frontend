@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background-image: url('assets/swopa3zoom.jpg');
+  background-image: url('assets/backgrounds/swopa3zoom.jpg');
   background-size: cover;
 }
 
@@ -14,7 +14,6 @@ body {
 main {
   max-width: 1000px;
   margin: 2em auto 4em;
-  /*padding-top: 104px;*/
 }
 
 p {

@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 
-import { UserService } from '../user.service';
-import { User } from '../user';
+import { UserService } from '../../user.service';
+import { User } from '../../user';
 
 @Component({
-  selector: 'app-user-login-form',
+  selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  user: User = new User();
+  user: User;
 
   constructor(private userService: UserService) {
 

@@ -7,7 +7,19 @@ article.product {
   height: 100%
 }
 
-figure img {
-  width: 40%;
+img {
   border-radius: 8px;
+  width: 250px;
+  margin: 10px 10px;
 }
+
+li {
+  display: inline-block;
+}
+
+ul {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+}
+

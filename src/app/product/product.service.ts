@@ -22,27 +22,6 @@ export class ProductService {
   public getAllProducts(): Observable<Product[]> {
     const uri = 'products';
     return this.api.get<Product[]>(uri);
-      // .map(
-      //   (response: any) => {
-      //     const data = response.json();
-      //     console.log(data);
-      //     return data;
-      //   }
-      // )
-    //   .subscribe(
-    //   data => {
-    //       console.log('Path is correct');
-    //       // console.log(data);
-    //       this.products = data;
-    //       console.log(this.products);
-    //       return this.products;
-    //       },
-    //   error => {
-    //       console.log('Path is incorrect');
-    //       // console.log(data);
-    //       }
-    //   );
-    // return null;
   }
 
   public getProduct(id: number): Observable<Product> {

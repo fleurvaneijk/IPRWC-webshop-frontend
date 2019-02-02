@@ -20,16 +20,11 @@ export class UserService {
   }
 
   public register(user: User): void {
-    const data = {
-        fullName: user.fullName,
-        emailAddress: user.emailAddress,
-        password: user.password
-      };
-
-    this.api.post<void>('users', data)
+    console.log(user);
+    this.api.post<void>('users', user)
       .subscribe(
       data => {
-        this.goHome();
+        alert('Het registreren is gelukt! U kan nu inloggen');
       },
       error => {
         alert('Het registreren is mislukt');
@@ -38,7 +33,7 @@ export class UserService {
   }
 
   public login(user: User, remember: boolean): void {
-    this.authService.setAuthorization(user.emailAddress, user.password);
+    this.authService.setAuthorization(user.email, user.password);
 
     this.api.get<User>('users/me').subscribe
     (

@@ -1,0 +1,17 @@
+div {
+  display: inline-block;
+}
+
+#container {
+  width: 100%;
+}
+
+#login {
+  width: 47%;
+  margin-right: 6%;
+  vertical-align: top;
+}
+
+#register {
+  width: 47%;
+}

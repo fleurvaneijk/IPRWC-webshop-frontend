@@ -19,22 +19,22 @@ export class ProductInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.route);
+    this.getProduct();
+  }
 
+  private getProduct() {
     this.route.params.subscribe(params => {
       const id = +params['id'];
 
       this.productService.getProduct(id).subscribe(
         data => {
-            this.product = data;
-            console.log(this.product);
+          this.product = data;
         },
         error => {
           this.router.navigateByUrl('/', {queryParams: {error: 'Product kon niet gevonden worden.'}});
         }
       );
     });
-
   }
 
   // addToBasket() {
