@@ -19,7 +19,7 @@ import { UserService } from './user/user.service';
 import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
-import {OrderedProduct} from './cart/ordered-product';
+import { AccountInfoComponent } from './account-info/account-info.component';
 
 
 @NgModule({
@@ -39,7 +39,8 @@ import {OrderedProduct} from './cart/ordered-product';
     RegisterComponent,
     LoginRegisterComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    AccountInfoComponent
   ],
   providers: [
     ProductService,

@@ -11,6 +11,7 @@ import { AuthorizationService } from '../shared/authorization.service';
 })
 export class HeaderComponent {
   public authenticated = false;
+  public loggedIn = false;
 
   constructor(private authService: AuthorizationService, private router: Router) {
     this.authenticated = authService.hasAuthorization();

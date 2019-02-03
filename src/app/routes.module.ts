@@ -6,6 +6,7 @@ import { ProductInfoComponent } from './product/product-info/product-info.compon
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginRegisterComponent } from './user/login-register/login-register.component';
 import {CartComponent} from './cart/cart.component';
+import {AccountInfoComponent} from './account-info/account-info.component';
 
 export const routes: Routes =
   [
@@ -14,6 +15,7 @@ export const routes: Routes =
     { path: 'products/:id', component: ProductInfoComponent },
     { path: 'login', component: LoginRegisterComponent },
     { path: 'cart', component: CartComponent },
+    { path: 'account', component: AccountInfoComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
 

@@ -9,6 +9,7 @@ import { User } from './user';
 
 @Injectable()
 export class UserService {
+
   constructor(private api: ApiService,
               private authService: AuthorizationService,
               private router: Router) {
@@ -17,6 +18,11 @@ export class UserService {
 
   public getAll(): Observable<User[]> {
     return this.api.get<User[]>('users');
+  }
+
+  public getUser(email: string) {
+    const uri = 'users/' + email;
+    return this.api.get(uri, email);
   }
 
   public register(user: User): void {
@@ -40,7 +46,14 @@ export class UserService {
       authenticator => {
         this.authService.storeAuthorization(authenticator, remember);
 
-        this.goHome();
+        this.getUser(user.email).subscribe(
+          data => {
+            console.log(data);
+            user = <User><unknown>data;
+            console.log(user);
+            this.goToAccountPage(user);
+          }
+        );
       },
       error => {
         alert('Het inloggen is mislukt');
@@ -52,6 +65,17 @@ export class UserService {
     this.authService.deleteAuthorization();
 
     this.goHome();
+  }
+
+  public goToAccountPage(user) {
+    console.log(user.role);
+    if (user.role === 'ADMIN' || user.role === 'GUEST') {
+      console.log('to account!');
+      this.router.navigate(['/account']);
+    } else {
+      console.log('went home :(');
+      this.goHome();
+    }
   }
 
   private goHome() {
