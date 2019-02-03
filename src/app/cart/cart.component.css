@@ -51,66 +51,11 @@ p#prijstot {
   margin-left: 125px;
 }
 
-/* -------------- ITEM ---------------*/
-.item {
-  padding: 20px 30px;
-  height: 150px;
-  display: flex;
-  border-bottom: 1px solid #f1f1f1;
-}
-
 /* -------------- BUTTONS ---------------*/
 .buttons {
   position: relative;
   padding-top: 30px;
   margin-right: 60px;
-}
-
-/* -------------- IMAGE ---------------*/
-.image {
-  max-width: 110px;
-  height: 110px;
-  border-radius: 8px;
-}
-
-/* -------------- NAME AND DESCRIPTION ---------------*/
-.title {
-  margin: auto 60px auto 20px;
-  width: 115px;
-}
-
-.title span {
-  display: block;
-  font-size: 1.1em;
-  color: #43484D;
-  font-weight: 400;
-}
-
-.title span:first-child {
-  margin-bottom: 5px;
-}
-.title span:last-child {
-  font-weight: 300;
-  margin-top: 8px;
-  color: #86939E;
-}
-
-/* -------------- QUANTITIY ---------------*/
-.quantity {
-  margin: auto 50px auto 0;
-  width: 100px;
-}
-.quantity* {
-  display: inline-block;
-}
-
-.quantity input {
-  -webkit-appearance: none;
-  text-align: center;
-  width: 32px;
-  font-weight: 300;
-  float: left;
-  border: 1px solid #f1f1f1;
 }
 
 /* -------------- BUTTONS ---------------*/
@@ -124,71 +69,43 @@ button[class*=btn] {
   float: left;
   background-color: transparent;
 }
-.minus-btn img {
-  width: 110%;
-}
-.plus-btn img {
-  width: 110%;
-}
 
-/* -------------- PRICE ---------------*/
-.price {
-  float: right;
-  width: 83px;
-  text-align: center;
-  font-size: 16px;
-  color: #43484D;
-  font-weight: 300;
-  margin: auto 0 auto 20px;
-}
-
-.total-price {
-  float: right;
-  width: 83px;
-  text-align: center;
-  font-size: 16px;
-  color: #43484D;
-  font-weight: 300;
-  margin: auto 0 auto 100px;
-}
+/* -------------------------------- */
 
 /* Totals section */
-.totals {
-  clear: both;
+.total {
   width: 100%;
-  margin-bottom: 10px;
-}
-
-label {
-  float: left;
-  clear: both;
-  width: 79%;
-  text-align: right;
+  padding-top: 20px;
+  margin: 0 auto 10px;
+  display: inline-block;
 }
 
 .totals-value {
+  margin: auto 10px;
   float: right;
-  width: 21%;
-  text-align: right;
 }
 
-.totals-item-total {
-  font-weight: bold;
+label {
+  margin: auto 20px;
+  float: right;
 }
 
+/* -------------- CHECKOUT BUTTON --------------- */
 .checkout {
-  float: right;
-  border: 0;
-  margin-top: 20px;
-  padding: 6px 25px;
   background-color: #368A28;
   color: white;
-  font-size: 25px;
-  border-radius: 3px;
+  padding: 10px 20px;
+  margin: 8px auto;
+  border: none;
+  cursor: pointer;
+  width: 90%;
+  opacity: 0.9;
+  border-radius: 8px;
+  font-size: 1.1em;
 }
 
 .checkout:hover {
-  background-color: #494;
+  opacity:1;
 }
 
 
@@ -198,19 +115,6 @@ label {
     width: 100%;
     height: auto;
     overflow: hidden;
-  }
-  .item {
-    height: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  .image img {
-    width: 50%;
-  }
-  .image .quantity .description {
-    width: 100%;
-    text-align: center;
-    margin: 6px 0;
   }
   .buttons {
     margin-right: 20px;

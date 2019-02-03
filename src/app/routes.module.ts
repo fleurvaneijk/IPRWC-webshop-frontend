@@ -5,8 +5,9 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginRegisterComponent } from './user/login-register/login-register.component';
-import {CartComponent} from './cart/cart.component';
-import {AccountInfoComponent} from './account-info/account-info.component';
+import { CartComponent } from './cart/cart.component';
+import { AccountInfoComponent } from './account-info/account-info.component';
+import { ProductManagementComponent } from './product-management/product-management.component';
 
 export const routes: Routes =
   [
@@ -16,6 +17,7 @@ export const routes: Routes =
     { path: 'login', component: LoginRegisterComponent },
     { path: 'cart', component: CartComponent },
     { path: 'account', component: AccountInfoComponent },
+    { path: 'product-management', component: ProductManagementComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
 

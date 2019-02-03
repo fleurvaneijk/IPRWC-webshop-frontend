@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {ProductService} from '../product/product.service';
 import {Product} from '../product/product';
 import {forEach} from '@angular/router/src/utils/collection';
+import {AuthorizationService} from '../shared/authorization.service';
+import {User} from '../user/user';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-shop',
@@ -13,7 +16,7 @@ export class ShopComponent implements OnInit {
   products: Product[] = [];
   selectedId: number;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private authService: AuthorizationService) {
 
   }
 

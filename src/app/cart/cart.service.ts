@@ -19,7 +19,7 @@ export class CartService {
     // Checks if product is already in cart, then add the amount
     for (let i = 0; i < this.orderedProducts.length; i++) {
       if (this.orderedProducts[i].product_id === product.id) {
-        this.orderedProducts[i].amount += amount;
+        this.orderedProducts[i].amount = (Number(this.orderedProducts[i].amount) + Number(amount));
         addAmount = true;
       }
     }
@@ -31,9 +31,9 @@ export class CartService {
     this.storeCartToCookie();
   }
 
-  public removeFromCart(product: Product) {
+  public removeFromCart(product: OrderedProduct) {
     for (let i = 0; i < this.orderedProducts.length; i++) {
-      if (this.orderedProducts[i].product_id === product.id) {
+      if (this.orderedProducts[i].product_id === product[1].id) {
         this.orderedProducts.splice(i, 1);
       }
     }

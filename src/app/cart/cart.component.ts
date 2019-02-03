@@ -18,5 +18,4 @@ export class CartComponent implements OnInit {
     this.orderedProducts = this.cartService.getCart();
     console.log(this.orderedProducts);
   }
-
 }

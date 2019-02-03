@@ -1,0 +1,26 @@
+<div class="item">
+  <button (click)="deleteItem(product)" class="deletebtn" type="button" name="button">
+    <img src="/assets/cross.svg" alt="" />
+  </button>
+
+  <img class="image" [src]=product.image alt="" />
+
+  <div class="title">
+    <span>{{ product.title }}</span>
+  </div>
+
+  <div class="quantity">
+    <button (click)="decrease1()" class="minus-btn" type="button" name="button">
+      <img src="/assets/min.svg" alt="" />
+    </button>
+
+    <input type="number" id="amount"  min="1" [value]="product.amount">
+
+    <button (click)="increment1()" class="plus-btn" type="button" name="button">
+      <img src="/assets/plus.svg" alt="" />
+    </button>
+  </div>
+
+  <div class="price">&euro;{{ product.price }}</div>
+  <div class="total-price">€{{ product.price * product.amount}}</div>
+</div>

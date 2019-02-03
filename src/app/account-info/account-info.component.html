@@ -1,3 +1,8 @@
+<button class="add-product"
+        *ngIf="user.role === 'ADMIN'"
+        routerLink="/product-management"
+        >Producten beheren</button>
+
 <form>
   <div class="container">
     <button (click)="logout()" class="logout btn-danger">Uitloggen</button>

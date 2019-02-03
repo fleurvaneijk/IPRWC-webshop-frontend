@@ -46,8 +46,17 @@ export class ProductInfoComponent implements OnInit {
     });
   }
 
+  decrease1() {
+    (<HTMLInputElement>document.getElementById('amount')).stepDown(1);
+  }
+  increment1() {
+    (<HTMLInputElement>document.getElementById('amount')).stepUp(1);
+  }
+
   addToCart(product: Product) {
-    this.cartService.addToCart(product, 1);
+    const amount: number = <number><unknown>(<HTMLInputElement>document.getElementById('amount')).value;
+    console.log(amount);
+    this.cartService.addToCart(product, amount);
     alert('Het product is toegevoegd aan uw winkelwagen.');
   }
 

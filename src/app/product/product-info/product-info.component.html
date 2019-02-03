@@ -18,13 +18,13 @@
 
     <div class="to-cart">
       <div class="quantity">
-        <button class="minus-btn" type="button" name="button">
+        <button (click)="decrease1()" class="minus-btn" type="button" name="button">
           <img src="/assets/min.svg" alt="" />
         </button>
 
-        <input type="text" name="name" value="1">
+        <input type="number" id="amount" min="1" value="1">
 
-        <button class="plus-btn" type="button" name="button">
+        <button (click)="increment1()" class="plus-btn" type="button" name="button">
           <img src="/assets/plus.svg" alt="" />
         </button>
       </div>

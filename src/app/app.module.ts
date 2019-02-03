@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RoutesModule } from './routes.module';
 import { PublicModule } from './public.module';
@@ -20,6 +21,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartService } from './cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AccountInfoComponent } from './account-info/account-info.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { ProductManagementComponent } from './product-management/product-management.component';
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { AccountInfoComponent } from './account-info/account-info.component';
     BrowserModule,
     RoutesModule,
     PublicModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [ PublicModule ],
   declarations: [
@@ -40,7 +45,9 @@ import { AccountInfoComponent } from './account-info/account-info.component';
     LoginRegisterComponent,
     LoginComponent,
     CartComponent,
-    AccountInfoComponent
+    AccountInfoComponent,
+    CartItemComponent,
+    ProductManagementComponent
   ],
   providers: [
     ProductService,
