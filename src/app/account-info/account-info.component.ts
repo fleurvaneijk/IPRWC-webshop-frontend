@@ -38,7 +38,7 @@ export class AccountInfoComponent implements OnInit {
     this.editedUser = new User(email, name, password, 'GUEST');
     this.userService.update(this.user.email, this.editedUser).subscribe(
       succes => {
-        alert('Uw gegevens zijn succesvol gewijzigd. U wordt verzocht opnieuw in te loggen');
+        alert('Uw gegevens zijn succesvol gewijzigd.');
         this.userService.login(this.editedUser, false);
         window.location.reload();
       },
@@ -53,7 +53,15 @@ export class AccountInfoComponent implements OnInit {
   }
 
   deleteAccount() {
-
+    this.userService.delete(this.user.email).subscribe(
+      succes => {
+        alert('Uw account is succesvol verwijdert.');
+        this.userService.logout();
+      },
+      error => {
+        alert('Er ging iets mis! Uw account is NIET verwijdert.');
+      }
+    );
   }
 
 }

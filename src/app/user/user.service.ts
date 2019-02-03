@@ -59,6 +59,11 @@ export class UserService {
     return this.api.post(uri, editedUser);
   }
 
+  delete(email: string): Observable<any> {
+    const uri = 'users/' + email;
+    return this.api.delete(uri);
+  }
+
   public logout() {
     this.authService.deleteAuthorization();
     this.router.navigate(['/login']);

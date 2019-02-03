@@ -41,26 +41,25 @@ hr {
   margin-bottom: 25px;
 }
 
-.updatebtn {
-  background-color: #368A28;
+button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
-  width: 100%;
   opacity: 0.9;
   border-radius: 8px;
+}
+button.updatebtn {
+  background-color: #368A28;
+  width: 100%;
+}
+button.deletebtn {
+  background-color: #b90000;
+  width: 100%;
 }
 button.logout {
   background-color: rgb(161, 161, 161);
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  opacity: 0.9;
-  border-radius: 8px;
-  color: white;
   float: right;
 }
 
