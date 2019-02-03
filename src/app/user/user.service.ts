@@ -17,7 +17,8 @@ export class UserService {
   }
 
   public getAll(): Observable<User[]> {
-    return this.api.get<User[]>('users');
+    const uri = 'users';
+    return this.api.get<User[]>(uri);
   }
 
   public getUser(email: string) {
@@ -53,10 +54,14 @@ export class UserService {
     );
   }
 
+  update(email: string, editedUser: User): Observable<any> {
+    const uri = 'users/' + email;
+    return this.api.post(uri, editedUser);
+  }
+
   public logout() {
     this.authService.deleteAuthorization();
-
-    this.goHome();
+    this.router.navigate(['/login']);
   }
 
   public goToAccountPage(user) {
