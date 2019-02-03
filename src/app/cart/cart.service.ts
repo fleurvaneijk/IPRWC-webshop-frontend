@@ -14,6 +14,7 @@ export class CartService {
 
   public addToCart(product: Product) {
     this.orderedProducts.push(product);
+    console.log(this.orderedProducts);
   }
 
   public getCart() {

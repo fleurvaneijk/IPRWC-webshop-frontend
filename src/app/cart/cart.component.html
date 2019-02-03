@@ -5,15 +5,10 @@
   </div>
 
   <!-- Product #1 -->
-  <div *ngFor="let product of orderedProducts"
-    class="item">
-    <div class="buttons">
-      <span class="delete-btn"></span>
-      <span class="like-btn"></span>
-    </div>
+  <div *ngFor="let product of orderedProducts" class="item">
 
-    <div class="image">
-      <img [src]=product.images[0] alt="" />
+    <div>
+      <img class="image" [src]=product.images[0] alt="" />
     </div>
 
     <div class="description">
@@ -22,14 +17,14 @@
 
     <div class="quantity">
       <button class="plus-btn" type="button" name="button">
-        <img src="plus.svg" alt="" />
+        <img src="/assets/plus.svg" alt="" />
       </button>
       <input type="text" name="name" value="1">
       <button class="minus-btn" type="button" name="button">
-        <img src="minus.svg" alt="" />
+        <img src="/assets/min.svg" alt="" />
       </button>
     </div>
 
-    <div class="total-price">{{ product.price }}</div>
+    <div class="total-price">&euro;{{ product.price }}</div>
   </div>
 </div>
