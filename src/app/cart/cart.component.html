@@ -2,6 +2,14 @@
   <!-- Title -->
   <h1>Uw winkelwagen</h1>
 
+  <!-- Columnames -->
+  <div class="columnames">
+    <p id="product">Product</p>
+    <p id="hoeveelheid">Hoeveelheid</p>
+    <p id="prijsps">Prijs per stuk</p>
+    <p id="prijstot">Totaal</p>
+  </div>
+
   <!-- Product -->
   <div *ngFor="let product of orderedProducts" class="item">
 
@@ -23,6 +31,7 @@
       </button>
     </div>
 
+    <div class="price">&euro;{{ product.price }}</div>
     <div class="total-price">&euro;{{ product.price }}</div>
   </div>
 

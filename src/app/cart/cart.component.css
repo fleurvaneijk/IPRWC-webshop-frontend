@@ -12,7 +12,7 @@ html, body {
 
 /* -------------- CART ---------------*/
 .shopping-cart {
-  width: 750px;
+  width: 800px;
   margin: 0 auto;
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.10);
@@ -29,11 +29,34 @@ h1 {
   font-weight: 400;
 }
 
+.columnames {
+  display: inline-flex;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+}
+p {
+  font-size: 0.8em;
+  margin: 5px 0;
+}
+p#product {
+  margin-left: 180px;
+}
+p#hoeveelheid {
+  margin-left: 125px;
+}
+p#prijsps {
+  margin-left: 90px;
+}
+p#prijstot {
+  margin-left: 125px;
+}
+
 /* -------------- ITEM ---------------*/
 .item {
   padding: 20px 30px;
-  height: 120px;
+  height: 150px;
   display: flex;
+  border-bottom: 1px solid #f1f1f1;
 }
 
 /* -------------- BUTTONS ---------------*/
@@ -45,22 +68,20 @@ h1 {
 
 /* -------------- IMAGE ---------------*/
 .image {
-  max-width: 100px;
-  height: 100px;
+  max-width: 110px;
+  height: 110px;
   border-radius: 8px;
 }
 
 /* -------------- NAME AND DESCRIPTION ---------------*/
 .title {
-  padding-top: 10px;
-  padding-left: 20px;
-  margin-right: 60px;
+  margin: auto 60px auto 20px;
   width: 115px;
 }
 
 .title span {
   display: block;
-  font-size: 14px;
+  font-size: 1.1em;
   color: #43484D;
   font-weight: 400;
 }
@@ -76,8 +97,7 @@ h1 {
 
 /* -------------- QUANTITIY ---------------*/
 .quantity {
-  padding-top: 20px;
-  margin-right: 60px;
+  margin: auto 50px auto 0;
   width: 100px;
 }
 .quantity* {
@@ -86,49 +106,53 @@ h1 {
 
 .quantity input {
   -webkit-appearance: none;
-  border: none;
   text-align: center;
   width: 32px;
-  font-size: 16px;
-  color: #43484D;
   font-weight: 300;
   float: left;
+  border: 1px solid #f1f1f1;
 }
 
 button[class*=btn] {
-  width: 30px;
-  height: 30px;
+  width: 31px;
+  height: 31px;
   border-radius: 6px;
   border: none;
   cursor: pointer;
   display: block;
   float: left;
+  background-color: transparent;
 }
 .minus-btn img {
-  margin-bottom: 3px;
+  width: 110%;
 }
 .plus-btn img {
-  margin-top: 2px;
-}
-
-button:focus, input:focus {
-  outline:0;
+  width: 110%;
 }
 
 /* -------------- PRICE ---------------*/
-.total-price {
+.price {
   float: right;
   width: 83px;
-  padding-top: 27px;
   text-align: center;
   font-size: 16px;
   color: #43484D;
   font-weight: 300;
+  margin: auto 0 auto 20px;
+}
+
+.total-price {
+  float: right;
+  width: 83px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+  margin: auto 0 auto 100px;
 }
 
 /* Totals section */
 .totals {
-  float: right;
   clear: both;
   width: 100%;
   margin-bottom: 10px;
