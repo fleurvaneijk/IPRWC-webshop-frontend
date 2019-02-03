@@ -1,3 +1,29 @@
-<p>
-  account-info works!
-</p>
+<form>
+  <div class="container">
+    <button (click)="logout()" class="logout btn-danger">Uitloggen</button>
+    <h1>Welkom, {{ user.name }}!</h1>
+    <p>Vul onderstaand formulier in om uw gegevens te wijzigen.</p>
+    <hr>
+
+    <label for="name"><b>Naam</b></label>
+    <div class="wrapper">
+      <input type="text" placeholder="Vul uw naam in" id="name" required>
+      <p class="existing-user">{{ user.name }}</p>
+    </div>
+
+
+    <label for="email"><b>E-mail</b></label>
+    <div class="wrapper">
+      <input type="text" placeholder="Vul uw e-mail in" id="email" required>
+      <p class="existing-user">{{ user.email }}</p>
+    </div>
+
+    <label for="password"><b>Wachtwoord</b></label>
+    <input type="password" placeholder="Vul uw wachtwoord in" id="password" required>
+
+    <label for="password-repeat"><b>Wachtwoord (nogmaals)</b></label>
+    <input type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required>
+
+    <button (click)="update()" type="submit" class="updatebtn">Gegevens opslaan</button>
+  </div>
+</form>

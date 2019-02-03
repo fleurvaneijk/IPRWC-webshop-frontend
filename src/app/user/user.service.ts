@@ -45,15 +45,7 @@ export class UserService {
     (
       authenticator => {
         this.authService.storeAuthorization(authenticator, remember);
-
-        this.getUser(user.email).subscribe(
-          data => {
-            console.log(data);
-            user = <User><unknown>data;
-            console.log(user);
-            this.goToAccountPage(user);
-          }
-        );
+        this.goToAccountPage(authenticator);
       },
       error => {
         alert('Het inloggen is mislukt');
@@ -68,12 +60,9 @@ export class UserService {
   }
 
   public goToAccountPage(user) {
-    console.log(user.role);
     if (user.role === 'ADMIN' || user.role === 'GUEST') {
-      console.log('to account!');
       this.router.navigate(['/account']);
     } else {
-      console.log('went home :(');
       this.goHome();
     }
   }
