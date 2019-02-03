@@ -1,5 +1,10 @@
 <main>
   <article class="product">
+
+    <button class="back-btn" type="button" name="button">
+      <a routerLink="/products"><img src="/assets/left-arrow.svg" alt="" /></a>
+    </button>
+
     <h1>{{ title }}</h1>
 
     <ul>
@@ -11,6 +16,20 @@
     <p>{{ description }}</p>
     <p>&euro;{{ price }}</p>
 
-    <button (click)="addToCart(product)" class="btn-success">Toevoegen aan winkelwagen</button>
+    <div class="to-cart">
+      <div class="quantity">
+        <button class="minus-btn" type="button" name="button">
+          <img src="/assets/min.svg" alt="" />
+        </button>
+
+        <input type="text" name="name" value="1">
+
+        <button class="plus-btn" type="button" name="button">
+          <img src="/assets/plus.svg" alt="" />
+        </button>
+      </div>
+
+      <button (click)="addToCart(product)" class="btn-success add-to-cart">Toevoegen aan winkelwagen</button>
+    </div>
   </article>
 </main>

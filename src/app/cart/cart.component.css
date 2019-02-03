@@ -113,6 +113,7 @@ p#prijstot {
   border: 1px solid #f1f1f1;
 }
 
+/* -------------- BUTTONS ---------------*/
 button[class*=btn] {
   width: 31px;
   height: 31px;

@@ -23,3 +23,62 @@ ul {
   padding: 0;
 }
 
+/* -------------- TO CART ---------------*/
+.to-cart {
+  display: inline-flex;
+  border-top: 1px solid gray;
+  align-content: center;
+}
+
+/* -------------- QUANTITIY ---------------*/
+.quantity {
+  padding-top: 10px;
+  width: auto;
+}
+
+.quantity input {
+  -webkit-appearance: none;
+  text-align: center;
+  width: 32px;
+  font-weight: 300;
+  float: left;
+  border: 1px solid #f1f1f1;
+}
+
+/* -------------- BUTTONS ---------------*/
+button[class*=btn] {
+  width: 31px;
+  height: 31px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+  background-color: transparent;
+}
+button.minus-btn img {
+  margin: 0;
+  width: 110%;
+}
+button.plus-btn img {
+  margin: 0;
+  width: 110%;
+}
+
+button.add-to-cart {
+  width: auto;
+  color: white;
+  margin-top: 10px;
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.9;
+  border-radius: 8px;
+  background-color: rgb(161, 161, 161);
+}
+
+button.back-btn img {
+  margin: 0 0 0 20px;
+  width: 250%;
+  float: left;
+}
