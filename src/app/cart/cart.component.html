@@ -1,30 +1,37 @@
 <div class="shopping-cart">
   <!-- Title -->
-  <div class="title">
-    Uw winkelwagen
-  </div>
+  <h1>Uw winkelwagen</h1>
 
-  <!-- Product #1 -->
+  <!-- Product -->
   <div *ngFor="let product of orderedProducts" class="item">
 
-    <div>
-      <img class="image" [src]=product.images[0] alt="" />
-    </div>
+    <img class="image" [src]=product.image alt="" />
 
-    <div class="description">
+    <div class="title">
       <span>{{ product.title }}</span>
     </div>
 
     <div class="quantity">
-      <button class="plus-btn" type="button" name="button">
-        <img src="/assets/plus.svg" alt="" />
-      </button>
-      <input type="text" name="name" value="1">
       <button class="minus-btn" type="button" name="button">
         <img src="/assets/min.svg" alt="" />
+      </button>
+
+      <input type="text" name="name" value="1">
+
+      <button class="plus-btn" type="button" name="button">
+        <img src="/assets/plus.svg" alt="" />
       </button>
     </div>
 
     <div class="total-price">&euro;{{ product.price }}</div>
   </div>
+
+  <!-- Total -->
+  <div class="total">
+    <label>Totaalbedrag</label>
+    <div class="totals-value" id="cart-subtotal">€100.00</div>
+  </div>
+
+  <button class="checkout">Afrekenen</button>
+
 </div>

@@ -47,19 +47,8 @@ export class ProductInfoComponent implements OnInit {
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    alert('added to cart');
-
-    // if (AuthorisationService.isLoggedIn) {
-    //   const uri = '/api/shoppingbasket/insertShoppingbasketProduct';
-    //   this.shoppingBasket = new ShoppingBasket();
-    //   this.shoppingBasket.email = AuthorisationService.email;
-    //   this.shoppingBasket.product_id = this.product.Product_id;
-    //   this.shoppingBasket.amount = 1;
-    //   this.api.post(uri, this.shoppingBasket).subscribe();
-    // } else {
-    //   this.router.navigate(['/login']);
-    // }
+    this.cartService.addToCart(product, 1);
+    alert('Het product is toegevoegd aan uw winkelwagen.');
   }
 
 }

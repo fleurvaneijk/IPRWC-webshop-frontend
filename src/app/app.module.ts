@@ -8,16 +8,18 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import {ShopComponent} from './shop/shop.component';
+import { ShopComponent } from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
-import {ProductService} from './product/product.service';
+import { ProductService } from './product/product.service';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
-import {RegisterComponent} from './user/login-register/register/register.component';
-import {LoginRegisterComponent} from './user/login-register/login-register.component';
-import {LoginComponent} from './user/login-register/login/login.component';
-import {UserService} from './user/user.service';
+import { RegisterComponent } from './user/login-register/register/register.component';
+import { LoginRegisterComponent } from './user/login-register/login-register.component';
+import { LoginComponent } from './user/login-register/login/login.component';
+import { UserService } from './user/user.service';
 import { CartComponent } from './cart/cart.component';
-import {CartService} from './cart/cart.service';
+import { CartService } from './cart/cart.service';
+import { CookieService } from 'ngx-cookie-service';
+import {OrderedProduct} from './cart/ordered-product';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import {CartService} from './cart/cart.service';
   providers: [
     ProductService,
     UserService,
-    CartService
+    CartService,
+    CookieService
   ],
   bootstrap: [ AppComponent ]
 })

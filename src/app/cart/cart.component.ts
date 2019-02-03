@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../product/product';
+import {OrderedProduct} from './ordered-product';
 import {CartService} from './cart.service';
 
 @Component({
@@ -9,11 +9,12 @@ import {CartService} from './cart.service';
 })
 export class CartComponent implements OnInit {
 
-  orderedProducts: Product[] = [];
+  orderedProducts: OrderedProduct[] = [];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
+    this.cartService.retrieveCartFromCookie();
     this.orderedProducts = this.cartService.getCart();
     console.log(this.orderedProducts);
   }
