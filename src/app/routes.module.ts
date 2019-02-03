@@ -5,13 +5,15 @@ import { ShopComponent } from './shop/shop.component';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginRegisterComponent } from './user/login-register/login-register.component';
+import {CartComponent} from './cart/cart.component';
 
 export const routes: Routes =
   [
     { path: '', component: ShopComponent },
-    { path: 'login', component: LoginRegisterComponent },
     { path: 'products', component: ShopComponent },
     { path: 'products/:id', component: ProductInfoComponent },
+    { path: 'login', component: LoginRegisterComponent },
+    { path: 'cart', component: CartComponent },
     { path: '**', component: PageNotFoundComponent }
   ];
 

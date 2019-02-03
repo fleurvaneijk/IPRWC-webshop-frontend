@@ -20,7 +20,6 @@ export class UserService {
   }
 
   public register(user: User): void {
-    console.log(user);
     const uri = 'users';
     this.api.post<void>(uri, user)
       .subscribe(

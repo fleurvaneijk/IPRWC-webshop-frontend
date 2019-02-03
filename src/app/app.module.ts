@@ -16,6 +16,8 @@ import {RegisterComponent} from './user/login-register/register/register.compone
 import {LoginRegisterComponent} from './user/login-register/login-register.component';
 import {LoginComponent} from './user/login-register/login/login.component';
 import {UserService} from './user/user.service';
+import { CartComponent } from './cart/cart.component';
+import {CartService} from './cart/cart.service';
 
 
 @NgModule({
@@ -34,12 +36,13 @@ import {UserService} from './user/user.service';
     ProductInfoComponent,
     RegisterComponent,
     LoginRegisterComponent,
-    LoginComponent
+    LoginComponent,
+    CartComponent
   ],
   providers: [
     ProductService,
     UserService,
-    ProductService
+    CartService
   ],
   bootstrap: [ AppComponent ]
 })

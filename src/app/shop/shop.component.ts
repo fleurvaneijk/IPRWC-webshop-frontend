@@ -3,8 +3,6 @@ import {ProductService} from '../product/product.service';
 import {Product} from '../product/product';
 import {forEach} from '@angular/router/src/utils/collection';
 
-
-
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
@@ -36,6 +34,5 @@ export class ShopComponent implements OnInit {
     data.map(entry => {
       this.products.push(new Product(entry.id, entry.title, entry.description, entry.images, entry.price));
     });
-    console.log(this.products);
   }
 }

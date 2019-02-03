@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
 import { ApiService } from '../shared/api.service';
 import { AuthorizationService } from '../shared/authorization.service';
-import {Product} from './product';
-import {first, map} from 'rxjs/operators';
+import { Product } from './product';
 import 'rxjs-compat/add/operator/map';
-import {User} from '../user/user';
 
 @Injectable()
 export class ProductService {

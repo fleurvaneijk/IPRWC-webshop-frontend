@@ -1,0 +1,35 @@
+<div class="shopping-cart">
+  <!-- Title -->
+  <div class="title">
+    Uw winkelwagen
+  </div>
+
+  <!-- Product #1 -->
+  <div *ngFor="let product of orderedProducts"
+    class="item">
+    <div class="buttons">
+      <span class="delete-btn"></span>
+      <span class="like-btn"></span>
+    </div>
+
+    <div class="image">
+      <img [src]=product.images[0] alt="" />
+    </div>
+
+    <div class="description">
+      <span>{{ product.title }}</span>
+    </div>
+
+    <div class="quantity">
+      <button class="plus-btn" type="button" name="button">
+        <img src="plus.svg" alt="" />
+      </button>
+      <input type="text" name="name" value="1">
+      <button class="minus-btn" type="button" name="button">
+        <img src="minus.svg" alt="" />
+      </button>
+    </div>
+
+    <div class="total-price">{{ product.price }}</div>
+  </div>
+</div>
