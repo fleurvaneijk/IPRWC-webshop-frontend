@@ -26,4 +26,9 @@ export class ProductService {
       const uri = 'products/' + id;
       return this.api.get<Product>(uri);
   }
+
+  public addProduct(product: Product): Observable<Product> {
+    const uri = 'products';
+    return this.api.post<Product>(uri, product);
+  }
 }

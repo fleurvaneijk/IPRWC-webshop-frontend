@@ -36,7 +36,7 @@
             <label data-error="wrong" data-success="right" for="title-input">Product titel</label>
             <input type="text" formControlName="titleInput" id="title-input" class="form-control validate">
             <span style="font-weight: bold;color: red; display: block;">
-                <span *ngIf="addProductForm.controls.titleInput.errors.required">Titel is vereist</span>
+                <!--<span *ngIf="addProductForm.controls.titleInput.errors.required">Titel is vereist</span>-->
             </span>
           </div>
 
@@ -59,6 +59,12 @@
                 <!--&lt;!&ndash;<span *ngIf="addProductForm.controls.imageInput.errors.required">Omschrijving is vereist</span>&ndash;&gt;-->
             <!--</span>-->
           <!--</div>-->
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <input style="display: none" type="file" formControlName="imageInput" (change)="onFileChanged($event); previewImage(file.files)" #file #fileInput>
+            <button class="btn btn-primary" style="margin:20px 0; padding: 5px;" (click)="fileInput.click()">Product foto selecteren</button>
+            <img [src]="imgURL" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" *ngIf="imgURL" alt="">
+          </div>
 
           <!----------- PRICE INPUT ------------->
           <div class="md-form mb-5">
@@ -66,7 +72,7 @@
             <label data-error="wrong" data-success="right" for="price-input">Prijs</label>
             <input type="number" formControlName="titleInput" id="price-input" class="form-control validate">
             <span style="font-weight: bold;color: red; display: block;">
-                <span *ngIf="addProductForm.controls.priceInput.errors.required">Prijs is vereist</span>
+                <!--<span *ngIf="addProductForm.controls.priceInput.errors.required">Prijs is vereist</span>-->
             </span>
           </div>
 

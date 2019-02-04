@@ -14,11 +14,23 @@ import {MatDialogRef} from '@angular/material';
 })
 export class ShopComponent implements OnInit {
 
+  constructor(private productService: ProductService,
+              private authService: AuthorizationService,
+              private formBuilder: FormBuilder) {
+
+  }
+
   products: Product[] = [];
   selectedId: number;
   user: User;
 
   addProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
+
+  selectedFile: File;
+
+  public imagePath;
+  imgURL: any;
+  public message: string;
 
   openModal () {
     const modal = <HTMLElement>document.getElementById('addProductForm');
@@ -28,12 +40,6 @@ export class ShopComponent implements OnInit {
   closeModal () {
     const modal = <HTMLElement>document.getElementById('addProductForm');
     modal.style.display = 'none';
-  }
-
-  constructor(private productService: ProductService,
-              private authService: AuthorizationService,
-              private formBuilder: FormBuilder) {
-
   }
 
   ngOnInit(): void {
@@ -69,8 +75,54 @@ export class ShopComponent implements OnInit {
     this.addProductForm = this.formBuilder.group({
       titleInput: ['', Validators.required],
       descriptionInput: [''],
-      // imageInput: [''],
+      imageInput: [''],
       priceInput: ['', Validators.required]
     });
+  }
+
+  onFileChanged(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  previewImage(files) {
+    if (files.length === 0) {
+      return;
+    }
+
+    const mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      this.message = 'Only images are supported.';
+      return;
+    }
+
+    const reader = new FileReader();
+    this.imagePath = files;
+    reader.readAsDataURL(files[0]);
+    reader.onload = (_event) => {
+      this.imgURL = reader.result;
+    };
+  }
+
+  addProduct() {
+    let product: Product;
+    const title = <string><undefined><HTMLInputElement>this.addProductForm.controls.titleInput.value;
+    const description = <string><undefined><HTMLInputElement>this.addProductForm.controls.descriptionInput.value;
+    const image = <string><undefined><HTMLInputElement>this.addProductForm.controls.imageInput.value;
+    const price = <number><undefined><HTMLInputElement>this.addProductForm.controls.priceInput.value;
+    const images: string[] = [image];
+
+    console.log(title, description, image, price);
+    product = new Product(title, description, images, price);
+    console.log(product);
+
+    this.productService.addProduct(product).subscribe(
+      success => {
+        alert('Het product is succesvol toegevoegd.');
+        window.location.reload();
+      },
+      error => {
+        alert('Er ging iets mis. Het product is NIET toegevoegd.');
+      }
+    );
   }
 }
