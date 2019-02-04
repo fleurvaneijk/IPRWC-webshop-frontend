@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ShopComponent } from './shop/shop.component';
+import { ShopComponent} from './shop/shop.component';
 import { ProductComponent } from './product/product.component';
 import { ProductService } from './product/product.service';
 import { ProductInfoComponent } from './product/product-info/product-info.component';
@@ -23,6 +23,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { ProductManagementComponent } from './product-management/product-management.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { ProductManagementComponent } from './product-management/product-managem
     PublicModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   exports: [ PublicModule ],
   declarations: [

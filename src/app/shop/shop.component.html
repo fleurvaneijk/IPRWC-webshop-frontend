@@ -1,8 +1,80 @@
-<ul id="shop">
-  <li
-    *ngFor="let product of products"
-    [class.selected]="product.id === selectedId"
-    routerLink="/products/{{product.id}}">
-    <app-product [product]="product"></app-product>
-  </li>
-</ul>
+<main>
+  <button class="add-product"
+          id="addProductBtn"
+          [hidden]="user.role != 'ADMIN'"
+          [disabled]="user.role != 'ADMIN'"
+          (click)="openModal()"
+          >Product toevoegen</button>
+
+  <ul id="shop">
+    <li
+      *ngFor="let product of products"
+      [class.selected]="product.id === selectedId"
+      routerLink="/products/{{product.id}}">
+      <app-product [product]="product"></app-product>
+    </li>
+  </ul>
+
+
+  <!-- "Add prodcut" popup screen -->
+  <form [formGroup]="addProductForm" class="modal fade" id="addProductForm" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+
+        <!-- Header of the "add product" popup screen -->
+        <div class="modal-header text-center">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title w-100 font-weight-bold">Product toevoegen</h4>
+        </div>
+
+        <div class="modal-body mx-3">
+          <!----------- TITLE INPUT ------------->
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="title-input">Product titel</label>
+            <input type="text" formControlName="titleInput" id="title-input" class="form-control validate">
+            <span style="font-weight: bold;color: red; display: block;">
+                <span *ngIf="addProductForm.controls.titleInput.errors.required">Titel is vereist</span>
+            </span>
+          </div>
+
+          <!----------- DESCRIPTION INPUT ------------->
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="description-input">Product omschrijving</label>
+            <input type="text" formControlName="titleInput" id="description-input" class="form-control validate">
+            <span style="font-weight: bold;color: red; display: block;">
+                <!--<span *ngIf="addProductForm.controls.descriptionInput.errors.required">Omschrijving is vereist</span>-->
+            </span>
+          </div>
+
+          <!----------- IMAGES INPUT ------------->
+          <!--<div class="md-form mb-5">-->
+            <!--<i class="fas fa-envelope prefix grey-text"></i>-->
+            <!--<label data-error="wrong" data-success="right" for="image-input">Afbeelding</label>-->
+            <!--<input type="image" formControlName="titleInput" id="image-input" class="form-control validate" alt="">-->
+            <!--<span style="font-weight: bold;color: red; display: block;">-->
+                <!--&lt;!&ndash;<span *ngIf="addProductForm.controls.imageInput.errors.required">Omschrijving is vereist</span>&ndash;&gt;-->
+            <!--</span>-->
+          <!--</div>-->
+
+          <!----------- PRICE INPUT ------------->
+          <div class="md-form mb-5">
+            <i class="fas fa-envelope prefix grey-text"></i>
+            <label data-error="wrong" data-success="right" for="price-input">Prijs</label>
+            <input type="number" formControlName="titleInput" id="price-input" class="form-control validate">
+            <span style="font-weight: bold;color: red; display: block;">
+                <span *ngIf="addProductForm.controls.priceInput.errors.required">Prijs is vereist</span>
+            </span>
+          </div>
+
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button (click)="addProduct()" data-dismiss="modal" class="btn btn-default add-product confirm">Product toevoegen</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
