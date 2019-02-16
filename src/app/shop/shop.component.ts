@@ -59,7 +59,7 @@ export class ShopComponent implements OnInit {
 
   processProductData(data) {
     data.map(entry => {
-      this.products.push(new Product(entry.id, entry.title, entry.description, entry.images, entry.price));
+      this.products.push(new Product(entry.title, entry.description, entry.images, entry.price, entry.id));
     });
   }
 

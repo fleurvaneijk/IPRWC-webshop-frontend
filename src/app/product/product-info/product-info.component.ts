@@ -33,7 +33,7 @@ export class ProductInfoComponent implements OnInit {
 
       this.productService.getProduct(id).subscribe(
         data => {
-          this.product = data;
+          this.product = new Product(data.title, data.description, data.images, data.price, data.id);
           this.images = this.product.images;
           this.title = this.product.title;
           this.description = this.product.description;
