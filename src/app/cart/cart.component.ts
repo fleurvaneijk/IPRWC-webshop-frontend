@@ -17,4 +17,10 @@ export class CartComponent implements OnInit {
     this.cartService.retrieveCartFromCookie();
     this.orderedProducts = this.cartService.getCart();
   }
+
+  checkout() {
+    this.cartService.deleteCookie();
+    alert('Bedankt voor uw bestelling!');
+    window.location.reload();
+  }
 }

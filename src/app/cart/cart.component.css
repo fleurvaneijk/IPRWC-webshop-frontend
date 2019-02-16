@@ -17,16 +17,20 @@ html, body {
   background: #FFFFFF;
   box-shadow: 1px 2px 3px 0 rgba(0,0,0,0.10);
   border-radius: 6px;
-
   display: flex;
   flex-direction: column;
 }
 
-h1 {
+h1, h2 {
   height: 60px;
   padding: 20px 30px;
   font-size: 1.5em;
   font-weight: 400;
+}
+
+h2 {
+  font-size: 1.3em;
+  color: darkblue;
 }
 
 .columnames {
@@ -93,6 +97,8 @@ label {
 /* -------------- CHECKOUT BUTTON --------------- */
 .checkout {
   background-color: #368A28;
+  display: flex;
+  justify-content: center;
   color: white;
   padding: 10px 20px;
   margin: 8px auto;

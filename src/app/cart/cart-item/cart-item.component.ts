@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CartService} from '../cart.service';
 import {OrderedProduct} from '../ordered-product';
+import {CartComponent} from '../cart.component';
 
 @Component({
   selector: 'app-cart-item',
@@ -11,7 +12,7 @@ export class CartItemComponent implements OnInit {
 
   @Input() product: OrderedProduct;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private cartComponent: CartComponent) { }
 
   ngOnInit() {
   }
@@ -27,5 +28,6 @@ export class CartItemComponent implements OnInit {
 
   deleteItem() {
     this.cartService.removeFromCart(this.product);
+    this.cartComponent.ngOnInit();
   }
 }
