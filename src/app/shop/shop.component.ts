@@ -111,9 +111,7 @@ export class ShopComponent implements OnInit {
     const price = <number><undefined><HTMLInputElement>this.addProductForm.controls.priceInput.value;
     const images: string[] = [image];
 
-    console.log(title, description, image, price);
     product = new Product(title, description, images, price);
-    console.log(product);
 
     this.productService.addProduct(product).subscribe(
       success => {

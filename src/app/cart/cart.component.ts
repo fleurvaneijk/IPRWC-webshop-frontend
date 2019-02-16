@@ -16,6 +16,5 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartService.retrieveCartFromCookie();
     this.orderedProducts = this.cartService.getCart();
-    console.log(this.orderedProducts);
   }
 }

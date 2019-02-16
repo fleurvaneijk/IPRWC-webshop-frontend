@@ -55,7 +55,6 @@ export class ProductInfoComponent implements OnInit {
 
   addToCart(product: Product) {
     const amount: number = <number><unknown>(<HTMLInputElement>document.getElementById('amount')).value;
-    console.log(amount);
     this.cartService.addToCart(product, amount);
     alert('Het product is toegevoegd aan uw winkelwagen.');
   }

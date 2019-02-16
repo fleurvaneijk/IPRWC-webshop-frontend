@@ -19,13 +19,13 @@ export class CartItemComponent implements OnInit {
   decrease1() {
     (<HTMLInputElement>document.getElementById('amount')).stepDown(1);
     this.product.amount = (<number><unknown><HTMLInputElement>document.getElementById('amount'));
-    console.log(this.product.title, this.product.amount);
   }
   increment1() {
     (<HTMLInputElement>document.getElementById('amount')).stepUp(1);
+    this.product.amount = (<number><unknown><HTMLInputElement>document.getElementById('amount'));
   }
 
-  deleteItem(product) {
-    this.cartService.removeFromCart(product);
+  deleteItem() {
+    this.cartService.removeFromCart(this.product);
   }
 }
