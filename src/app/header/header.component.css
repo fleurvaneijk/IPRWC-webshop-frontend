@@ -55,7 +55,7 @@ nav li {
   margin-bottom: auto;
 }
 
-/*elke indivuduele tekst van de optie*/
+/* text of every list option */
 nav a {
   position: relative;
   display: inline-block;
@@ -75,3 +75,9 @@ nav li a .routerLinkActive {
   color: green;
 }
 
+/*------------- RESPONSIVENESS ------------*/
+@media (max-width: 670px) {
+  img#logo{
+    visibility: hidden;
+  }
+}

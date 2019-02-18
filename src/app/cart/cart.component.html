@@ -18,13 +18,13 @@
 
     <!-- Product -->
     <div *ngFor="let product of orderedProducts" class="item">
-      <app-cart-item [product]="product"></app-cart-item>
+      <app-cart-item [product]="product" id="{{ product.product_id }}"></app-cart-item>
     </div>
 
     <!-- Total -->
     <div class="total">
       <label>Totaalbedrag</label>
-      <div class="totals-value" id="cart-subtotal">€2938.00</div>
+      <div class="totals-value" id="cart-subtotal">€{{ totalPrice }}</div>
     </div>
 
     <!-- Checkout button -->

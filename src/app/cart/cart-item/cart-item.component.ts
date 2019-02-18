@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {CartService} from '../cart.service';
 import {OrderedProduct} from '../ordered-product';
 import {CartComponent} from '../cart.component';
@@ -11,6 +11,7 @@ import {CartComponent} from '../cart.component';
 export class CartItemComponent implements OnInit {
 
   @Input() product: OrderedProduct;
+  totalPrice: number;
 
   constructor(private cartService: CartService, private cartComponent: CartComponent) { }
 
@@ -18,15 +19,17 @@ export class CartItemComponent implements OnInit {
   }
 
   decrease1() {
-    (<HTMLInputElement>document.getElementById('amount')).stepDown(1);
-    this.product.amount = parseFloat((<HTMLInputElement>document.getElementById('amount')).value);
-    this.cartService.changeAmount(this.product);
+    if (this.product.amount !== 0) {
+      this.product.amount -= 1;
+      this.cartService.changeAmount(this.product);
+      this.cartComponent.makeTotalPrice();
+    }
   }
 
   increment1() {
-    (<HTMLInputElement>document.getElementById('amount')).stepUp(1);
-    this.product.amount = parseFloat((<HTMLInputElement>document.getElementById('amount')).value);
+    this.product.amount += 1;
     this.cartService.changeAmount(this.product);
+    this.cartComponent.makeTotalPrice();
   }
 
   deleteItem() {
