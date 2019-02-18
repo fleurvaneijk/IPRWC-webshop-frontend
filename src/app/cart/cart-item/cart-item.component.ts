@@ -11,7 +11,6 @@ import {CartComponent} from '../cart.component';
 export class CartItemComponent implements OnInit {
 
   @Input() product: OrderedProduct;
-  totalPrice: number;
 
   constructor(private cartService: CartService, private cartComponent: CartComponent) { }
 
@@ -20,14 +19,14 @@ export class CartItemComponent implements OnInit {
 
   decrease1() {
     if (this.product.amount !== 0) {
-      this.product.amount -= 1;
+      this.product.amount--;
       this.cartService.changeAmount(this.product);
       this.cartComponent.makeTotalPrice();
     }
   }
 
   increment1() {
-    this.product.amount += 1;
+    this.product.amount++;
     this.cartService.changeAmount(this.product);
     this.cartComponent.makeTotalPrice();
   }
