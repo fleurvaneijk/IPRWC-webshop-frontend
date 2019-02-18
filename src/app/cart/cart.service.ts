@@ -41,6 +41,15 @@ export class CartService {
     this.storeCartToCookie();
   }
 
+  public changeAmount(product: OrderedProduct) {
+    for (let i = 0; i < this.orderedProducts.length; i++) {
+      if (this.orderedProducts[i].product_id === product.product_id) {
+        this.orderedProducts[i].amount = product.amount;
+      }
+    }
+    this.storeCartToCookie();
+  }
+
   public getCart() {
     return this.orderedProducts;
   }
