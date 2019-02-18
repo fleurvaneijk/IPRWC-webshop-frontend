@@ -1,4 +1,4 @@
-/* LOGO ------- LOGO ------- LOGO ------- LOGO*/
+/*---------------- LOGO ------------------*/
 img#logo:hover {
   animation: wiggle 0.6s infinite;
   transition: 0.5s ease;
@@ -25,8 +25,8 @@ header img#logo {
   margin: 0;
 }
 
-/* NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE ------- NAVIGATIE */
-/*de hele lijst*/
+/* ----------------- NAVIGATION -----------------------*/
+/* the whole list*/
 header {
   width: 100%;
   background-color: #0d0d0d;
@@ -43,7 +43,7 @@ nav ul {
 }
 
 
-/*elke individuele optie*/
+/* every list option */
 nav li {
   display: inline-block;
   text-decoration: none;
@@ -53,14 +53,6 @@ nav li {
   transform: translateY(-50%);
   margin-top: auto;
   margin-bottom: auto;
-}
-
-nav li:hover {
-  text-shadow: 2px 8px 6px lightgrey,
-  0 -5px 35px lightgrey;
-}
-nav li a .routerLinkActive {
-  color: green;
 }
 
 /*elke indivuduele tekst van de optie*/
@@ -73,6 +65,13 @@ nav a {
   padding: 0 20px;
 }
 
-nav img {
-  margin-right: 100px;
+nav li a:hover {
+  color: #981b21;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+
 }
+
+nav li a .routerLinkActive {
+  color: green;
+}
+

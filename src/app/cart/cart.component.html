@@ -2,14 +2,14 @@
   <!-- Title -->
   <h1>Uw winkelwagen</h1>
 
-  <!--------- SHOW WHEN CART IS EMPTY ---------------------->
+  <!------------------------ SHOW WHEN CART IS EMPTY -------------------------------->
   <h2 [hidden]="orderedProducts.length != 0">Uw winkelwagen is leeg.</h2>
 
 
-  <!---------------------ALS DE WINKELWAGEN NIET LEEG IS------------------------------->
+  <!--------------------- SHOW WHEN CART IS NOT EMPTY ------------------------------->
   <div class="cart-items" [hidden]="orderedProducts.length == 0">
     <!-- Columnames -->
-    <div class="columnames">
+    <div class="column-names">
       <p id="product">Product</p>
       <p id="hoeveelheid">Hoeveelheid</p>
       <p id="prijsps">Prijs per stuk</p>

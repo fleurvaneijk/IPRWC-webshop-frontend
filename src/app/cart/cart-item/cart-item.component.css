@@ -1,10 +1,8 @@
-/* -------------- BODY ---------------*/
-
 * {
   box-sizing: border-box;
 }
 
-/* -------------- ITEM ---------------*/
+/* -------------- ITEM / PRODUCT ---------------*/
 .item {
   padding: 20px 30px 20px 10px;
   height: 150px;
@@ -12,27 +10,11 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
-/* -------------- BUTTONS ---------------*/
-.buttons {
-  position: relative;
-  padding-top: 30px;
-  margin-right: 60px;
-}
-
-/* -------------- IMAGE ---------------*/
+/* -------------- PRODUCT IMAGE ---------------*/
 .image {
   max-width: 110px;
   height: 110px;
   border-radius: 8px;
-}
-
-/* -------------- DELETE BUTTON ---------------*/
-.deletebtn {
-  margin: auto 10px auto 0;
-  width: 115px;
-}
-.deletebtn img {
-  width: 120%;
 }
 
 /* -------------- NAME AND DESCRIPTION ---------------*/
@@ -54,7 +36,16 @@
 .title span:last-child {
   font-weight: 300;
   margin-top: 8px;
-  color: #86939E;
+  color: #43484D;
+}
+
+/* -------------- DELETE BUTTON ---------------*/
+.deletebtn {
+  margin: auto 10px auto 0;
+  width: 115px;
+}
+.deletebtn img {
+  width: 120%;
 }
 
 /* -------------- QUANTITIY ---------------*/
