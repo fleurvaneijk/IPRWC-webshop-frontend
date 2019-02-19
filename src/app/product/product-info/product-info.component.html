@@ -5,6 +5,13 @@
       <a routerLink="/products"><img src="/assets/left-arrow.svg" alt="" /></a>
     </button>
 
+    <button class="delete-product"
+            id="deleteProductBtn"
+            [hidden]="user.role != 'ADMIN'"
+            [disabled]="user.role != 'ADMIN'"
+            (click)="deleteProduct(product)"
+    >Product verwijderen</button>
+
     <h1>{{ title }}</h1>
 
     <ul>

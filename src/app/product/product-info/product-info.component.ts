@@ -4,6 +4,8 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ApiService} from '../../shared/api.service';
 import {ProductService} from '../product.service';
 import {CartService} from '../../cart/cart.service';
+import {User} from '../../user/user';
+import {AuthorizationService} from '../../shared/authorization.service';
 
 @Component({
   selector: 'app-product-info',
@@ -17,14 +19,19 @@ export class ProductInfoComponent implements OnInit {
   private title = '';
   private description = '';
   private price = 0;
+  private user: User;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router,
+  constructor(private route: ActivatedRoute,
+              private productService: ProductService,
+              private router: Router,
+              private authService: AuthorizationService,
               private cartService: CartService) {
 
   }
 
   ngOnInit() {
     this.getProduct();
+    this.authentication();
   }
 
   private getProduct() {
@@ -59,4 +66,23 @@ export class ProductInfoComponent implements OnInit {
     alert('Het product is toegevoegd aan uw winkelwagen.');
   }
 
+  deleteProduct(product: Product) {
+    this.productService.deleteProduct(product).subscribe(
+      succes => {
+        alert('Het product is succesvol verwijdert.');
+        this.router.navigate(['/products']);
+      },
+      error => {
+        alert('Het product kon NIET verwijdert worden.');
+      }
+    );
+  }
+
+  private authentication() {
+    if (this.authService.getAuthenticator() !== null) {
+      this.user = <User>this.authService.getAuthenticator();
+    } else {
+      this.user = new User('fill@fill.nl', 'fill', 'fillfill', 'NONE');
+    }
+  }
 }

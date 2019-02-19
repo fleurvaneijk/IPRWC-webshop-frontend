@@ -23,6 +23,20 @@ ul {
   padding: 0;
 }
 
+/*----------- DELETE PRODUCT BUTTON (ADMIN) ----------*/
+button.delete-product {
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+  background-color: #f3de00;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+
+  /*position: relative;*/
+  /*float: right;*/
+}
+
 /* -------------- TO CART ---------------*/
 .to-cart {
   display: inline-flex;

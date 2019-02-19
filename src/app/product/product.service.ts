@@ -31,4 +31,9 @@ export class ProductService {
     const uri = 'products';
     return this.api.post<Product>(uri, product);
   }
+
+  public deleteProduct(product: Product): Observable<Product> {
+    const uri = 'products/delete/' + product.id;
+    return this.api.delete<Product>(uri);
+  }
 }
