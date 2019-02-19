@@ -26,15 +26,15 @@ export class UserService {
     return this.api.get(uri, email);
   }
 
-  public register(user: User): void {
+  public addUser(user: User): void {
     const uri = 'users';
     this.api.post<void>(uri, user)
       .subscribe(
       data => {
-        alert('Het registreren is gelukt! U kan nu inloggen');
+        alert('Het registreren is gelukt! U kan nu inloggen.');
       },
       error => {
-        alert('Het registreren is mislukt');
+        alert('Het registreren is mislukt.');
       }
     );
   }
@@ -49,7 +49,7 @@ export class UserService {
         this.goToAccountPage(authenticator);
       },
       error => {
-        alert('Het inloggen is mislukt');
+        alert('Het inloggen is mislukt.');
       }
     );
   }

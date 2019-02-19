@@ -27,7 +27,14 @@ export class RegisterComponent {
     } else {
       error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
     }
+
+    this.checkPassword(password);
+
     this.user = new User(email, name, password, 'GUEST');
-    this.userService.register(this.user);
+    this.userService.addUser(this.user);
+  }
+
+  checkPassword(password: string) {
+
   }
 }
