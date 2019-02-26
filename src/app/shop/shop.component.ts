@@ -21,14 +21,12 @@ export class ShopComponent implements OnInit {
   }
 
   products: Product[] = [];
-  selectedId: number;
   user: User;
 
   addProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
 
   selectedFile: File;
-
-  public imagePath;
+  imagePath;
   imgURL: any;
   public message: string;
 
@@ -99,14 +97,17 @@ export class ShopComponent implements OnInit {
     const description = <string><undefined><HTMLInputElement>this.addProductForm.controls.descriptionInput.value;
     const image = <string><undefined><HTMLInputElement>this.addProductForm.controls.imageInput.value;
     const price = <number><undefined><HTMLInputElement>this.addProductForm.controls.priceInput.value;
-    const images: string[] = [image];
+    const images: string[] = [];
+    images.push(image);
 
     product = new Product(title, description, images, price);
+
+    console.log(product);
 
     this.productService.addProduct(product).subscribe(
       success => {
         alert('Het product is succesvol toegevoegd.');
-        window.location.reload();
+        // window.location.reload();
       },
       error => {
         alert('Er ging iets mis. Het product is NIET toegevoegd.');
