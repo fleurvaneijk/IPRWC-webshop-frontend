@@ -25,7 +25,7 @@ export class ShopComponent implements OnInit {
 
   addProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
 
-  selectedFile: File;
+  url;
   imagePath;
   imgURL: any;
   public message: string;
@@ -68,10 +68,6 @@ export class ShopComponent implements OnInit {
     });
   }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0];
-  }
-
   previewImage(files) {
     if (files.length === 0) {
       return;
@@ -91,14 +87,25 @@ export class ShopComponent implements OnInit {
     };
   }
 
+  onFileChanged(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (event: ProgressEvent) => {
+        this.url = (<FileReader>event.target).result;
+      };
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
   addProduct() {
     let product: Product;
-    const title = <string><undefined><HTMLInputElement>this.addProductForm.controls.titleInput.value;
-    const description = <string><undefined><HTMLInputElement>this.addProductForm.controls.descriptionInput.value;
-    const image = <string><undefined><HTMLInputElement>this.addProductForm.controls.imageInput.value;
-    const price = <number><undefined><HTMLInputElement>this.addProductForm.controls.priceInput.value;
+    const title = this.addProductForm.controls.titleInput.value;
+    const description = this.addProductForm.controls.descriptionInput.value;
+    const price = this.addProductForm.controls.priceInput.value;
     const images: string[] = [];
-    images.push(image);
+    images.push(this.url);
 
     product = new Product(title, description, images, price);
 
@@ -107,7 +114,7 @@ export class ShopComponent implements OnInit {
     this.productService.addProduct(product).subscribe(
       success => {
         alert('Het product is succesvol toegevoegd.');
-        // window.location.reload();
+        window.location.reload();
       },
       error => {
         alert('Er ging iets mis. Het product is NIET toegevoegd.');

@@ -11,6 +11,6 @@ export class Product {
     this.title = title;
     this.description = description;
     this.images = images;
-    this.price = price;
+    this.price = <number><unknown>(price.toFixed(2));
   }
 }
