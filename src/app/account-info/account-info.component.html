@@ -8,32 +8,32 @@
 
   <form class="account-info">
     <div class="container">
-      <button (click)="logout()" class="logout btn-danger">Uitloggen</button>
+      <button (click)="logout()" class="logoutbtn btn-danger account-info">Uitloggen</button>
       <h1>Welkom, {{ user.name }}!</h1>
       <p>Vul onderstaand formulier in om uw gegevens te wijzigen.</p>
       <hr>
 
       <label for="name"><b>Naam</b></label>
       <div class="wrapper">
-        <input type="text" placeholder="Vul uw naam in" id="name" required>
+        <input class="account-info" type="text" placeholder="Vul uw naam in" id="name" required>
         <p class="existing-user">{{ user.name }}</p>
       </div>
 
 
       <label for="email"><b>E-mail</b></label>
       <div class="wrapper">
-        <input type="text" placeholder="Vul uw e-mail in" id="email" required>
+        <input class="account-info" type="text" placeholder="Vul uw e-mail in" id="email" required>
         <p class="existing-user">{{ user.email }}</p>
       </div>
 
       <label for="password"><b>Wachtwoord</b></label>
-      <input type="password" placeholder="Vul uw wachtwoord in" id="password" required>
+      <input class="account-info" type="password" placeholder="Vul uw wachtwoord in" id="password" required>
 
       <label for="password-repeat"><b>Wachtwoord (nogmaals)</b></label>
-      <input type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required>
+      <input class="account-info" type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required>
 
-      <button (click)="update()" type="submit" class="updatebtn">Gegevens opslaan</button>
-      <button (click)="deleteAccount()" type="submit" class="deletebtn">Account verwijderen</button>
+      <button (click)="update()" type="submit" class="updatebtn account-info">Gegevens opslaan</button>
+      <button (click)="deleteAccount()" type="submit" class="deletebtn account-info">Account verwijderen</button>
     </div>
   </form>
 
@@ -53,20 +53,20 @@
         <div class="modal-body mx-3">
 
           <!------------------------ Name -------------------------------->
-          <label for="name"><b>Naam</b></label>
-          <input name="name" class="form-control" type="text" placeholder="Vul uw naam in" id="new-admin-name" required>
+          <label for="new-admin-name"><b>Naam admin</b></label>
+          <input name="name" class="form-control" type="text" id="new-admin-name" required>
 
           <!------------------------ E-mail -------------------------------->
-          <label for="email"><b>E-mail</b></label>
-          <input type="text" placeholder="Vul uw e-mail in" id="new-admin-email" required>
+          <label for="new-admin-email"><b>E-mail admin</b></label>
+          <input type="text" id="new-admin-email" required>
 
           <!------------------------ Password -------------------------------->
-          <label for="password"><b>Wachtwoord</b></label>
-          <input type="password" placeholder="Vul uw wachtwoord in" id="new-admin-password" required minlength="8">
+          <label for="new-admin-password"><b>Wachtwoord admin</b></label>
+          <input type="password" id="new-admin-password" required minlength="8">
 
 
-          <label for="password-repeat"><b>Wachtwoord (nogmaals)</b></label>
-          <input type="password" placeholder="Vul uw wachtwoord nogmaals in" id="new-admin-password-repeat" required minlength="8">
+          <label for="new-admin-password-repeat"><b>Wachtwoord admin (nogmaals)</b></label>
+          <input type="password" id="new-admin-password-repeat" required minlength="8">
 
 
         </div>
