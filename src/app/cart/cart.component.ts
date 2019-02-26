@@ -25,6 +25,7 @@ export class CartComponent implements OnInit {
     for (const product of this.orderedProducts) {
       const subtotal = product.price * product.amount;
       this.totalPrice += subtotal;
+      this.totalPrice = <number><unknown>this.totalPrice.toFixed(2);
     }
   }
 
