@@ -32,16 +32,6 @@ export class ShopComponent implements OnInit {
   imgURL: any;
   public message: string;
 
-  openModal () {
-    const modal = <HTMLElement>document.getElementById('addProductForm');
-    modal.style.display = 'block';
-  }
-
-  closeModal () {
-    const modal = <HTMLElement>document.getElementById('addProductForm');
-    modal.style.display = 'none';
-  }
-
   ngOnInit(): void {
     this.getAllProducts();
     this.authentication();
@@ -122,5 +112,15 @@ export class ShopComponent implements OnInit {
         alert('Er ging iets mis. Het product is NIET toegevoegd.');
       }
     );
+  }
+
+  openModal () {
+    const modal = <HTMLElement>document.getElementById('addProductForm');
+    modal.style.display = 'block';
+  }
+
+  closeModal () {
+    const modal = <HTMLElement>document.getElementById('addProductForm');
+    modal.style.display = 'none';
   }
 }

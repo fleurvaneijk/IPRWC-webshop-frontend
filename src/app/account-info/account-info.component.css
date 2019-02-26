@@ -1,5 +1,11 @@
+/*---------------- WHOLE PAGE ----------------*/
+main{
+  position: relative;
+}
+
+/*---------------- ACCOUNT INFO ----------------*/
 /* Bordered form */
-form {
+form.account-info {
   background-color: whitesmoke;
   border-radius: 8px;
   width: 800px;
@@ -70,6 +76,75 @@ button:hover {
 /* Add padding to container elements */
 .container {
   padding: 16px;
+}
+
+/*----------- ADD PRODUCT BUTTON (ADMIN) ----------*/
+
+button.add-admin {
+  color: black;
+  font-weight: bold;
+  margin: 8px auto;
+  border: 2px solid black;
+  background-color: #f3de00;
+  opacity: 1;
+  alignment: center;
+  padding: 14px 20px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+li:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  box-shadow: 0 0 10px 0  gray;
+}
+
+/*-------------------- MODAL --------------------*/
+/* The Modal (background) */
+form.modal {
+  display: none; /* Hidden by default */
+  max-width: 1000px;
+  position: absolute; /* Stay in place */
+  z-index: 100; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width, covers all products*/
+  height: 100%; /* Full height, covers all products */
+  /*overflow: auto; !* Enable scroll if needed *!*/
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+input {
+  height: 30px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+button.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button.confirm {
+  margin-top: 30px;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
