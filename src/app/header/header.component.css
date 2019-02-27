@@ -30,6 +30,7 @@ header img#logo {
 header {
   width: 100%;
   background-color: #0d0d0d;
+  height: 110px;
 }
 
 nav ul {

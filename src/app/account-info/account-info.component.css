@@ -1,6 +1,7 @@
 /*---------------- WHOLE PAGE ----------------*/
 main{
   position: relative;
+  z-index: 0;
 }
 
 /*---------------- ACCOUNT INFO ----------------*/
