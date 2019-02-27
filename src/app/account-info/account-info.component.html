@@ -13,23 +13,23 @@
       <p>Vul onderstaand formulier in om uw gegevens te wijzigen.</p>
       <hr>
 
-      <label for="name"><b>Naam</b></label>
+      <label for="name">Naam</label>
       <div class="wrapper">
         <input class="account-info" type="text" placeholder="Vul uw naam in" id="name" required>
         <p class="existing-user">{{ user.name }}</p>
       </div>
 
 
-      <label for="email"><b>E-mail</b></label>
+      <label for="email">E-mail</label>
       <div class="wrapper">
         <input class="account-info" type="text" placeholder="Vul uw e-mail in" id="email" required>
         <p class="existing-user">{{ user.email }}</p>
       </div>
 
-      <label for="password"><b>Wachtwoord</b></label>
+      <label for="password">Wachtwoord</label>
       <input class="account-info" type="password" placeholder="Vul uw wachtwoord in" id="password" required>
 
-      <label for="password-repeat"><b>Wachtwoord (nogmaals)</b></label>
+      <label for="password-repeat">Wachtwoord (nogmaals)</label>
       <input class="account-info" type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required>
 
       <button (click)="update()" type="submit" class="updatebtn account-info">Gegevens opslaan</button>
@@ -38,42 +38,6 @@
   </form>
 
   <!-- "Add admin" popup screen -->
-  <form [formGroup]="addAdminForm" class="modal fade" id="addAdminForm" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+  <app-add-admin></app-add-admin>
 
-        <!-- Header of the "add product" popup screen -->
-        <div class="modal-header text-center">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h4 class="modal-title w-100 font-weight-bold">Admin toevoegen</h4>
-        </div>
-
-        <div class="modal-body mx-3">
-
-          <!------------------------ Name -------------------------------->
-          <label for="new-admin-name"><b>Naam admin</b></label>
-          <input name="name" class="form-control" type="text" id="new-admin-name" required>
-
-          <!------------------------ E-mail -------------------------------->
-          <label for="new-admin-email"><b>E-mail admin</b></label>
-          <input type="text" id="new-admin-email" required>
-
-          <!------------------------ Password -------------------------------->
-          <label for="new-admin-password"><b>Wachtwoord admin</b></label>
-          <input type="password" id="new-admin-password" required minlength="8">
-
-
-          <label for="new-admin-password-repeat"><b>Wachtwoord admin (nogmaals)</b></label>
-          <input type="password" id="new-admin-password-repeat" required minlength="8">
-
-
-        </div>
-        <div class="modal-footer d-flex justify-content-center">
-          <button (click)="addAdmin()" data-dismiss="modal" class="btn btn-default add-admin confirm">Admin toevoegen</button>
-        </div>
-      </div>
-    </div>
-  </form>
 </main>

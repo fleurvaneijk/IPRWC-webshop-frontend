@@ -78,12 +78,14 @@ button.account-info:hover {
   padding: 16px;
 }
 
-/*----------- ADD PRODUCT BUTTON (ADMIN) ----------*/
+/*----------- ADD ADMIN BUTTON ----------*/
 
 button.add-admin {
+  margin-left: 100px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   color: black;
   font-weight: bold;
-  margin: 8px auto;
   border: 2px solid black;
   background-color: #f3de00;
   opacity: 1;
@@ -97,52 +99,6 @@ li:hover {
   cursor: pointer;
   transform: scale(1.02);
   box-shadow: 0 0 10px 0  gray;
-}
-
-/*-------------------- MODAL --------------------*/
-form.modal {
-  display: none;
-  max-width: 1000px;
-  position: absolute;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
-input.modal {
-  height: 30px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-button.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-button.confirm {
-  margin-top: 30px;
 }
 
 /*-------------------- RESPONSIVENESS --------------------*/

@@ -48,53 +48,6 @@ li:hover {
   box-shadow: 0 0 10px 0  gray;
 }
 
-/*-------------------- MODAL --------------------*/
-/* The Modal (background) */
-form.modal {
-  display: none;
-  max-width: 1000px;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-}
-
-input {
-  height: 30px;
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-/* The Close Button */
-button.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-button.confirm {
-  margin-top: 30px;
-}
-
 /*-------------------- RESPONSIVENESS --------------------*/
 @media (max-width: 1000px) {
   ul#shop {

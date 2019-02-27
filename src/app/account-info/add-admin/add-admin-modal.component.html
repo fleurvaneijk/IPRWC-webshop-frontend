@@ -1,0 +1,37 @@
+<form [formGroup]="addAdminForm" class="modal fade" id="addAdminForm">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <!-- Header of the "add product" popup screen -->
+      <div class="modal-header text-center">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title w-100 font-weight-bold">Admin toevoegen</h4>
+      </div>
+
+      <div class="modal-body mx-3">
+
+        <!------------------------ Name -------------------------------->
+        <label for="new-admin-name">Naam admin</label>
+        <input name="name" class="form-control" type="text" id="new-admin-name" required>
+
+        <!------------------------ E-mail -------------------------------->
+        <label for="new-admin-email">E-mail admin</label>
+        <input type="text" id="new-admin-email" required>
+
+        <!------------------------ Password -------------------------------->
+        <label for="new-admin-password">Wachtwoord admin</label>
+        <input type="password" id="new-admin-password" required minlength="8">
+
+
+        <label for="new-admin-password-repeat">Wachtwoord admin (nogmaals)</label>
+        <input type="password" id="new-admin-password-repeat" required minlength="8">
+
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button (click)="addAdmin()" data-dismiss="modal" class="btn btn-default add-admin confirm">Admin toevoegen</button>
+      </div>
+    </div>
+  </div>
+</form>

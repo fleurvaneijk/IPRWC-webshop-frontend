@@ -22,9 +22,9 @@ import { CartService } from './cart/cart.service';
 import { CookieService } from 'ngx-cookie-service';
 import { AccountInfoComponent } from './account-info/account-info.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
-import { ProductManagementComponent } from './product-management/product-management.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatDialogModule } from '@angular/material';
+import { AddAdminComponent } from './account-info/add-admin/add-admin-modal.component';
+import { AddProductComponent } from './product/add-product/add-product-modal.component';
 
 
 @NgModule({
@@ -50,13 +50,16 @@ import { MatDialogModule } from '@angular/material';
     CartComponent,
     AccountInfoComponent,
     CartItemComponent,
-    ProductManagementComponent
+    AddAdminComponent,
+    AddProductComponent
   ],
   providers: [
     ProductService,
     UserService,
     CartService,
-    CookieService
+    CookieService,
+    AddProductComponent,
+    AddAdminComponent
   ],
   bootstrap: [ AppComponent ]
 })

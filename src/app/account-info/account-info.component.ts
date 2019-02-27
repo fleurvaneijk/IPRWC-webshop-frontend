@@ -6,6 +6,7 @@ import {error} from '@angular/compiler/src/util';
 import {UserService} from '../user/user.service';
 import {Product} from '../product/product';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AddAdminComponent} from './add-admin/add-admin-modal.component';
 
 @Component({
   selector: 'app-account-info',
@@ -16,19 +17,19 @@ export class AccountInfoComponent implements OnInit {
 
   user: User;
   editedUser: User;
-  addAdminForm: FormGroup = new FormGroup({firstName: new FormControl()});
 
   constructor(private authService: AuthorizationService,
               private router: Router,
               private userService: UserService,
-              private formBuilder: FormBuilder) { }
+              private addAdminModal: AddAdminComponent) {
+
+  }
 
   ngOnInit() {
     if (this.authService.hasAuthorization() === false) {
       this.router.navigate(['/login']);
     }
     this.user = <User>this.authService.getAuthenticator();
-    this.generateAddAdminForm();
   }
 
   update() {
@@ -73,25 +74,7 @@ export class AccountInfoComponent implements OnInit {
     }
   }
 
-  addAdmin() {
-  }
-
-  private generateAddAdminForm() {
-    this.addAdminForm = this.formBuilder.group({
-      titleInput: ['', Validators.required],
-      descriptionInput: [''],
-      imageInput: [''],
-      priceInput: ['', Validators.required]
-    });
-  }
-
   openModal () {
-    const modal = <HTMLElement>document.getElementById('addAdminForm');
-    modal.style.display = 'block';
-  }
-
-  closeModal () {
-    const modal = <HTMLElement>document.getElementById('addAdminForm');
-    modal.style.display = 'none';
+    this.addAdminModal.openModal();
   }
 }
