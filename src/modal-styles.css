@@ -14,8 +14,10 @@ form.modal {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 20% auto; /* 15% from the top and centered */
+  margin: 20% auto;
+  border-radius: 8px;
   padding: 20px;
+  padding-left: 30px;
   border: 1px solid #888;
   width: 80%; /* Could be more or less, depending on screen size */
 }
@@ -27,7 +29,6 @@ button.close {
   font-weight: bold;
   color: white;
   padding: 8px 14px;
-  margin: 8px 0;
   border: none;
   cursor: pointer;
   opacity: 0.9;

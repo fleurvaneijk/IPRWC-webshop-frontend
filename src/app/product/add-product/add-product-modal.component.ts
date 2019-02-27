@@ -14,7 +14,6 @@ export class AddProductComponent implements OnInit {
   url;
   imagePath;
   imgURL: any;
-  public message: string;
   addProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
 
   constructor(private productService: ProductService,
@@ -41,7 +40,7 @@ export class AddProductComponent implements OnInit {
 
     const mimeType = files[0].type;
     if (mimeType.match(/image\/*/) == null) {
-      this.message = 'Only images are supported.';
+      alert('Alleen foto\'s worden ondersteund.');
       return;
     }
 
