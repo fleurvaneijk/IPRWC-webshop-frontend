@@ -15,7 +15,7 @@ export class CartItemComponent implements OnInit {
   constructor(private cartService: CartService, private cartComponent: CartComponent) { }
 
   ngOnInit() {
-  }
+    this.cartComponent.makeTotalPrice();  }
 
   decrease1() {
     if (this.product.amount !== 0) {

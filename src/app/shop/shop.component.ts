@@ -109,8 +109,6 @@ export class ShopComponent implements OnInit {
 
     product = new Product(title, description, images, price);
 
-    console.log(product);
-
     this.productService.addProduct(product).subscribe(
       success => {
         alert('Het product is succesvol toegevoegd.');

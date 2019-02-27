@@ -17,7 +17,6 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     this.cartService.retrieveCartFromCookie();
     this.orderedProducts = this.cartService.getCart();
-    this.makeTotalPrice();
   }
 
   makeTotalPrice() {
@@ -25,8 +24,8 @@ export class CartComponent implements OnInit {
     for (const product of this.orderedProducts) {
       const subtotal = product.price * product.amount;
       this.totalPrice += subtotal;
-      this.totalPrice = <number><unknown>this.totalPrice.toFixed(2);
     }
+    this.totalPrice = <number><unknown>this.totalPrice.toFixed(2);
   }
 
   checkout() {
