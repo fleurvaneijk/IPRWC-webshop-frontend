@@ -67,15 +67,17 @@ export class ProductInfoComponent implements OnInit {
   }
 
   deleteProduct(product: Product) {
-    this.productService.deleteProduct(product).subscribe(
-      succes => {
-        alert('Het product is succesvol verwijdert.');
-        this.router.navigate(['/products']);
-      },
-      error => {
-        alert('Het product kon NIET verwijdert worden.');
-      }
-    );
+    if (confirm('Weet u zeker dat u dit product wilt verwijderen?')) {
+      this.productService.deleteProduct(product).subscribe(
+        succes => {
+          alert('Het product is succesvol verwijdert.');
+          this.router.navigate(['/products']);
+        },
+        error => {
+          alert('Het product kon NIET verwijdert worden.');
+        }
+      );
+    }
   }
 
   private authentication() {

@@ -60,15 +60,17 @@ export class AccountInfoComponent implements OnInit {
   }
 
   deleteAccount() {
-    this.userService.delete(this.user.email).subscribe(
-      succes => {
-        alert('Uw account is succesvol verwijdert.');
-        this.userService.logout();
-      },
-      error => {
-        alert('Er ging iets mis! Uw account is NIET verwijdert.');
-      }
-    );
+    if (confirm('Weet u zeker dat u uw account wilt verwijderen?')) {
+      this.userService.delete(this.user.email).subscribe(
+        succes => {
+          alert('Uw account is succesvol verwijdert.');
+          this.userService.logout();
+        },
+        error => {
+          alert('Er ging iets mis! Uw account is NIET verwijdert.');
+        }
+      );
+    }
   }
 
   addAdmin() {
