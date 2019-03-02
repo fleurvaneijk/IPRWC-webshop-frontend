@@ -39,6 +39,19 @@ export class UserService {
     );
   }
 
+  public addAdmin(admin: User): void {
+    const uri = 'users/createAdmin';
+    this.api.post<void>(uri, admin).subscribe(
+        data => {
+          alert('Het registreren is gelukt! De nieuwe admin kan nu inloggen.');
+          window.location.reload();
+        },
+        error => {
+          alert('Het registreren is mislukt.');
+        }
+      );
+  }
+
   public login(user: User, remember: boolean): void {
     this.authService.setAuthorization(user.email, user.password);
 

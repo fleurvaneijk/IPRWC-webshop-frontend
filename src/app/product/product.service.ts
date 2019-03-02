@@ -27,9 +27,17 @@ export class ProductService {
       return this.api.get<Product>(uri);
   }
 
-  public addProduct(product: Product): Observable<Product> {
+  public addProduct(product: Product) {
     const uri = 'products';
-    return this.api.post<Product>(uri, product);
+    return this.api.post<Product>(uri, product).subscribe(
+      success => {
+        alert('Het product is succesvol toegevoegd.');
+        window.location.reload();
+      },
+      error => {
+        alert('Er ging iets mis. Het product is NIET toegevoegd.');
+      }
+    );
   }
 
   public deleteProduct(product: Product): Observable<Product> {

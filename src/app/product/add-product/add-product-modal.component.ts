@@ -74,15 +74,7 @@ export class AddProductComponent implements OnInit {
 
     product = new Product(title, description, images, price);
 
-    this.productService.addProduct(product).subscribe(
-      success => {
-        alert('Het product is succesvol toegevoegd.');
-        window.location.reload();
-      },
-      error => {
-        alert('Er ging iets mis. Het product is NIET toegevoegd.');
-      }
-    );
+    this.productService.addProduct(product);
   }
 
   openModal () {

@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {error} from '@angular/compiler/src/util';
+import {User} from '../../user/user';
+import {UserService} from '../../user/user.service';
 
 @Component({
   selector: 'app-add-admin',
@@ -10,8 +13,9 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 export class AddAdminComponent implements OnInit {
 
   addAdminForm: FormGroup = new FormGroup({firstName: new FormControl()});
+  admin: User;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService) {
 
   }
 
@@ -20,6 +24,19 @@ export class AddAdminComponent implements OnInit {
   }
 
   addAdmin() {
+    const name = (<HTMLInputElement>document.getElementById('new-admin-name')).value;
+    const email = (<HTMLInputElement>document.getElementById('new-admin-email')).value;
+    let password;
+
+    if ((<HTMLInputElement>document.getElementById('new-admin-password')).value ===
+      (<HTMLInputElement>document.getElementById('new-admin-password-repeat')).value) {
+      password = (<HTMLInputElement>document.getElementById('new-admin-password')).value;
+    } else {
+      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+    }
+
+    this.admin = new User(email, name, password, 'ADMIN');
+    this.userService.addAdmin(this.admin);
   }
 
   private generateAddAdminForm() {
