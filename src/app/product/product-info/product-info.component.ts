@@ -6,6 +6,7 @@ import {ProductService} from '../product.service';
 import {CartService} from '../../cart/cart.service';
 import {User} from '../../user/user';
 import {AuthorizationService} from '../../shared/authorization.service';
+import {ModifyProductComponent} from '../modify-product/modify-product-modal.component';
 
 @Component({
   selector: 'app-product-info',
@@ -25,7 +26,8 @@ export class ProductInfoComponent implements OnInit {
               private productService: ProductService,
               private router: Router,
               private authService: AuthorizationService,
-              private cartService: CartService) {
+              private cartService: CartService,
+              private modifyProductModal: ModifyProductComponent) {
 
   }
 
@@ -86,5 +88,9 @@ export class ProductInfoComponent implements OnInit {
     } else {
       this.user = new User('fill@fill.nl', 'fill', 'fillfill', 'NONE');
     }
+  }
+
+  openModifyProductModal (product: Product) {
+    this.modifyProductModal.openModal(product);
   }
 }

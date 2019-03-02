@@ -40,6 +40,19 @@ export class ProductService {
     );
   }
 
+  public updateProduct(product: Product) {
+    const uri = 'products/' + product.id;
+    return this.api.post<Product>(uri, product).subscribe(
+      success => {
+        alert('Het product is succesvol toegevoegd.');
+        window.location.reload();
+      },
+      error => {
+        alert('Er ging iets mis. Het product is NIET toegevoegd.');
+      }
+    );
+  }
+
   public deleteProduct(product: Product): Observable<Product> {
     const uri = 'products/delete/' + product.id;
     return this.api.delete<Product>(uri);

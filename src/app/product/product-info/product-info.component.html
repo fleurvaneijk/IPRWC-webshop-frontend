@@ -5,6 +5,13 @@
       <a routerLink="/products"><img src="/assets/left-arrow.svg" alt="" /></a>
     </button>
 
+    <button class="modify-product"
+            id="modifyProductBtn"
+            [hidden]="user.role != 'ADMIN'"
+            [disabled]="user.role != 'ADMIN'"
+            (click)="openModifyProductModal(product)"
+    >Product wijzigen</button>
+
     <button class="delete-product"
             id="deleteProductBtn"
             [hidden]="user.role != 'ADMIN'"
@@ -39,4 +46,5 @@
       <button (click)="addToCart(product)" class="btn-success add-to-cart">Toevoegen aan winkelwagen</button>
     </div>
   </article>
+  <app-modify-product></app-modify-product>
 </main>

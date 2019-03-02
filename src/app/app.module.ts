@@ -25,6 +25,7 @@ import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddAdminComponent } from './account-info/add-admin/add-admin-modal.component';
 import { AddProductComponent } from './product/add-product/add-product-modal.component';
+import { ModifyProductComponent } from './product/modify-product/modify-product-modal.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AddProductComponent } from './product/add-product/add-product-modal.com
     AccountInfoComponent,
     CartItemComponent,
     AddAdminComponent,
-    AddProductComponent
+    AddProductComponent,
+    ModifyProductComponent
   ],
   providers: [
     ProductService,
@@ -59,7 +61,8 @@ import { AddProductComponent } from './product/add-product/add-product-modal.com
     CartService,
     CookieService,
     AddProductComponent,
-    AddAdminComponent
+    AddAdminComponent,
+    ModifyProductComponent
   ],
   bootstrap: [ AppComponent ]
 })

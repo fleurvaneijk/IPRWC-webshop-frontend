@@ -24,7 +24,7 @@ ul {
 }
 
 /*----------- DELETE PRODUCT BUTTON (ADMIN) ----------*/
-button.delete-product {
+button.delete-product, button.modify-product {
   color: black;
   font-weight: bold;
   border: 2px solid black;
@@ -32,9 +32,7 @@ button.delete-product {
   padding: 14px 20px;
   cursor: pointer;
   border-radius: 8px;
-
-  /*position: relative;*/
-  /*float: right;*/
+  margin-right: 10px;
 }
 
 /* -------------- TO CART ---------------*/
@@ -50,9 +48,9 @@ button.delete-product {
   width: auto;
 }
 
-.quantity input {
+.quantity input#amount {
   -webkit-appearance: none;
-  -moz-appearance:textfield;
+  -moz-appearance: textfield;
   text-align: center;
   width: 32px;
   font-weight: 300;
