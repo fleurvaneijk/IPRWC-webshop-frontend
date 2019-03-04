@@ -9,7 +9,7 @@
             id="modifyProductBtn"
             [hidden]="user.role != 'ADMIN'"
             [disabled]="user.role != 'ADMIN'"
-            (click)="openModifyProductModal(product)"
+            (click)="openModifyProductModal()"
     >Product wijzigen</button>
 
     <button class="delete-product"

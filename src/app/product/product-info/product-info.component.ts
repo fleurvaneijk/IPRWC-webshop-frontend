@@ -15,12 +15,12 @@ import {ModifyProductComponent} from '../modify-product/modify-product-modal.com
 })
 export class ProductInfoComponent implements OnInit {
 
-  private product: Product;
-  private images = [];
-  private title = '';
-  private description = '';
-  private price = 0;
-  private user: User;
+  product: Product;
+  images = [];
+  title = '';
+  description = '';
+  price = 0;
+  user: User;
 
   constructor(private route: ActivatedRoute,
               private productService: ProductService,
@@ -90,7 +90,7 @@ export class ProductInfoComponent implements OnInit {
     }
   }
 
-  openModifyProductModal (product: Product) {
-    this.modifyProductModal.openModal(product);
+  openModifyProductModal () {
+    this.modifyProductModal.openModal(this.product);
   }
 }

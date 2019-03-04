@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../product';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, NgModel, Validators} from '@angular/forms';
 import {ProductService} from '../product.service';
 import {ShopComponent} from '../../shop/shop.component';
 
@@ -12,26 +12,21 @@ import {ShopComponent} from '../../shop/shop.component';
 export class ModifyProductComponent implements OnInit {
 
   product: Product;
+  modifiedProduct: Product;
   url;
   imagePath;
   imgURL: any;
-  modifyProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
+
+  titleInput: string;
+  descriptionInput: string;
+  imageInput = [];
+  priceInput: number;
 
   constructor(private productService: ProductService,
               private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.generateModifyProductForm();
-  }
-
-  private generateModifyProductForm() {
-    this.modifyProductForm = this.formBuilder.group({
-      titleInput: ['', Validators.required],
-      descriptionInput: [''],
-      imageInput: [''],
-      priceInput: ['', Validators.required]
-    });
   }
 
   previewImage(files) {
@@ -60,33 +55,70 @@ export class ModifyProductComponent implements OnInit {
       reader.onload = (event: ProgressEvent) => {
         this.url = (<FileReader>event.target).result;
       };
-
       reader.readAsDataURL(event.target.files[0]);
+
+      this.product.images = [];
+      this.product.images.push(this.url);
     }
   }
 
   modifyProduct() {
-    let product: Product;
-    const title = this.modifyProductForm.controls.titleInput.value;
-    const description = this.modifyProductForm.controls.descriptionInput.value;
-    const price = this.modifyProductForm.controls.priceInput.value;
-    const images: string[] = [];
-    images.push(this.url);
 
-    product = new Product(title, description, images, price);
+    console.log('product', this.product);
 
-    //todo: pass id
-    this.productService.updateProduct(product);
+    console.log('titleinput value: ', this.titleInput);
+
+    this.product.title = this.titleInput;
+    this.product.description = this.descriptionInput;
+    this.product.price = this.priceInput;
+
+    console.log(this.product);
+
+    // todo: this.product is undefined??
+
+    this.productService.updateProduct(this.product);
   }
 
   openModal (product: Product) {
-    this.product = product;
-    const modal = <HTMLElement>document.getElementById('modifyProductForm');
+    this.product = new Product(product.title, product.description, product.images, product.price, product.id);
+    console.log(this.product);
+    this.fillForm();
+    const modal = document.getElementById('modifyProductForm');
     modal.style.display = 'block';
   }
 
   closeModal () {
-    const modal = <HTMLElement>document.getElementById('modifyProductForm');
+    const modal = document.getElementById('modifyProductForm');
     modal.style.display = 'none';
+  }
+
+  private fillForm() {
+
+    console.log(this.product);
+
+
+    // this.modifyProductForm.setValue({
+    //   titleInput: this.product.title,
+    //   descriptionInput: this.product.description,
+    //   imageInput: this.product.images,
+    //   priceInput: this.product.price
+    // });
+
+    this.titleInput = this.product.title;
+    console.log(this.titleInput);
+    this.descriptionInput = this.product.description;
+    console.log(this.descriptionInput);
+    this.priceInput = this.product.price;
+    console.log(this.priceInput);
+
+
+    // this.modifyProductForm.controls.descriptionInput.setValue(this.product.description);
+    // console.log(this.modifyProductForm.controls.descriptionInput.value);
+    // this.modifyProductForm.controls.priceInput.setValue(this.product.price);
+    // console.log(this.modifyProductForm.controls.priceInput.value);
+
+    console.log(this.product);
+
+
   }
 }

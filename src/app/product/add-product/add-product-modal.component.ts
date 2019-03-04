@@ -14,7 +14,7 @@ export class AddProductComponent implements OnInit {
   url;
   imagePath;
   imgURL: any;
-  addProductForm: FormGroup = new FormGroup({firstName: new FormControl()});
+  addProductForm: FormGroup = new FormGroup({addProductControls: new FormControl()});
 
   constructor(private productService: ProductService,
               private formBuilder: FormBuilder) {
