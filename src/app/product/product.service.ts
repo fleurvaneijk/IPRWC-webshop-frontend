@@ -44,11 +44,11 @@ export class ProductService {
     const uri = 'products/' + product.id;
     return this.api.post<Product>(uri, product).subscribe(
       success => {
-        alert('Het product is succesvol toegevoegd.');
+        alert('Het product is succesvol gewijzigd.');
         window.location.reload();
       },
       error => {
-        alert('Er ging iets mis. Het product is NIET toegevoegd.');
+        alert('Er ging iets mis. Het product is NIET gewijzigd.');
       }
     );
   }

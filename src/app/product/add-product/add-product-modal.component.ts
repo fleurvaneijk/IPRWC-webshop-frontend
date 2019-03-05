@@ -14,7 +14,7 @@ export class AddProductComponent implements OnInit {
   url;
   imagePath;
   imgURL: any;
-  addProductForm: FormGroup = new FormGroup({addProductControls: new FormControl()});
+  addProductForm: FormGroup = new FormGroup({titleInput: new FormControl()});
 
   constructor(private productService: ProductService,
               private formBuilder: FormBuilder) {
@@ -58,6 +58,7 @@ export class AddProductComponent implements OnInit {
 
       reader.onload = (event: ProgressEvent) => {
         this.url = (<FileReader>event.target).result;
+        console.log(this.url);
       };
 
       reader.readAsDataURL(event.target.files[0]);
@@ -80,6 +81,8 @@ export class AddProductComponent implements OnInit {
   openModal () {
     const modal = <HTMLElement>document.getElementById('addProductForm');
     modal.style.display = 'block';
+    this.addProductForm.controls.titleInput.setValue('hoi');
+    console.log(this.addProductForm.controls.titleInput.value);
   }
 
   closeModal () {

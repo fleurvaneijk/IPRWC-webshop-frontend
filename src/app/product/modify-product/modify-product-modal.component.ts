@@ -29,61 +29,69 @@ export class ModifyProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  previewImage(files) {
-    if (files.length === 0) {
-      return;
+  previewImage(event) {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (event: any) => {
+        this.imgURL = event.target.result;
+        this.product.images = [];
+        this.product.images.push(this.imgURL);
+      }
+      reader.readAsDataURL(event.target.files[0]);
     }
-
-    const mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      alert('Alleen foto\'s worden ondersteund.');
-      return;
-    }
-
-    const reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-    };
+    // if (files.length === 0) {
+    //   return;
+    // }
+    //
+    // const mimeType = files[0].type;
+    // if (mimeType.match(/image\/*/) == null) {
+    //   alert('Alleen foto\'s worden ondersteund.');
+    //   return;
+    // }
+    //
+    // const reader = new FileReader();
+    // this.imagePath = files;
+    // reader.readAsDataURL(files[0]);
+    // reader.onload = (_event) => {
+    //   this.imgURL = reader.result;
+    //   this.product.images = [];
+    //   this.product.images.push(this.imgURL);
+    // };
   }
 
   onFileChanged(event) {
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
+    const file = event.target.files[0];
+    console.log(file);
 
-      reader.onload = (event: ProgressEvent) => {
-        this.url = (<FileReader>event.target).result;
-      };
-      reader.readAsDataURL(event.target.files[0]);
+    const path = event.target.value;
+    console.log(path);
+    this.previewImage(event);
 
-      this.product.images = [];
-      this.product.images.push(this.url);
-    }
+
+    // if (event.target.files && event.target.files[0]) {
+    //   const reader = new FileReader();
+    //
+    //   reader.onload = (event: ProgressEvent) => {
+    //     this.url = (<FileReader>event.target).result;
+    //   };
+    //   reader.readAsDataURL(event.target.files[0]);
+    // }
   }
 
   modifyProduct() {
 
     console.log('product', this.product);
 
-    console.log('titleinput value: ', this.product.title);
-    //
-    // this.product.title = this.titleInput;
-    // this.product.description = this.descriptionInput;
-    // this.product.price = this.priceInput;
-
-    console.log(this.product);
-
-    // todo: this.product is undefined??
+    console.log('title: ', this.product.title);
+    console.log('description value: ', this.product.description);
+    console.log('price value: ', this.product.price);
+    this.product.price = <number><unknown>this.product.price.toFixed(2);
+    console.log('price value: ', this.product.price);
 
     this.productService.updateProduct(this.product);
   }
 
   openModal () {
-    // this.product = new Product(product.title, product.description, product.images, product.price, product.id);
-    console.log(this.product);
-    console.log('open model used');
-    // this.fillForm();
     const modal = document.getElementById('modifyProductForm');
     modal.style.display = 'block';
   }
@@ -92,34 +100,4 @@ export class ModifyProductComponent implements OnInit {
     const modal = document.getElementById('modifyProductForm');
     modal.style.display = 'none';
   }
-
-  // fillForm() {
-  //
-  //   console.log(this.product);
-  //
-  //
-  //   // this.modifyProductForm.setValue({
-  //   //   titleInput: this.product.title,
-  //   //   descriptionInput: this.product.description,
-  //   //   imageInput: this.product.images,
-  //   //   priceInput: this.product.price
-  //   // });
-  //
-  //   this.titleInput = this.product.title;
-  //   console.log(this.titleInput);
-  //   this.descriptionInput = this.product.description;
-  //   console.log(this.descriptionInput);
-  //   this.priceInput = this.product.price;
-  //   console.log(this.priceInput);
-  //
-  //
-  //   // this.modifyProductForm.controls.descriptionInput.setValue(this.product.description);
-  //   // console.log(this.modifyProductForm.controls.descriptionInput.value);
-  //   // this.modifyProductForm.controls.priceInput.setValue(this.product.price);
-  //   // console.log(this.modifyProductForm.controls.priceInput.value);
-  //
-  //   console.log( this.product);
-  //
-  //   console.log('after show');
-  // }
 }

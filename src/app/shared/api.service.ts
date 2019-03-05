@@ -55,11 +55,11 @@ export class ApiService {
     return this.http.post(uri, data, { headers: headers });
   }
 
-  public put<T>(path: string, data: string, queryParameters?: Object): Observable<any> {
+  public put<T>(path: string, queryParameters?: Object): Observable<any> {
     const uri = this.endpoint + this.createURI(path, queryParameters);
     const headers = this.createRequestHeaders();
 
-    return this.http.put(uri, data, { headers: headers });
+    return this.http.put(uri, { headers: headers });
   }
 
   public delete<T>(path: string, queryParameters?: Object): Observable<any> {
