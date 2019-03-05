@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Product} from '../product';
 import {FormBuilder, FormControl, FormGroup, NgModel, Validators} from '@angular/forms';
 import {ProductService} from '../product.service';
@@ -11,19 +11,19 @@ import {ShopComponent} from '../../shop/shop.component';
 })
 export class ModifyProductComponent implements OnInit {
 
-  product: Product;
-  modifiedProduct: Product;
+  @Input() product: Product;
   url;
   imagePath;
   imgURL: any;
 
-  titleInput: string;
-  descriptionInput: string;
-  imageInput = [];
-  priceInput: number;
+  // titleInput: string;
+  // descriptionInput: string;
+  // imageInput = [];
+  // priceInput: number;
 
-  constructor(private productService: ProductService,
-              private formBuilder: FormBuilder) {
+
+  constructor(private productService: ProductService) {
+    console.log('constructor was used');
   }
 
   ngOnInit(): void {
@@ -66,11 +66,11 @@ export class ModifyProductComponent implements OnInit {
 
     console.log('product', this.product);
 
-    console.log('titleinput value: ', this.titleInput);
-
-    this.product.title = this.titleInput;
-    this.product.description = this.descriptionInput;
-    this.product.price = this.priceInput;
+    console.log('titleinput value: ', this.product.title);
+    //
+    // this.product.title = this.titleInput;
+    // this.product.description = this.descriptionInput;
+    // this.product.price = this.priceInput;
 
     console.log(this.product);
 
@@ -79,10 +79,11 @@ export class ModifyProductComponent implements OnInit {
     this.productService.updateProduct(this.product);
   }
 
-  openModal (product: Product) {
-    this.product = new Product(product.title, product.description, product.images, product.price, product.id);
+  openModal () {
+    // this.product = new Product(product.title, product.description, product.images, product.price, product.id);
     console.log(this.product);
-    this.fillForm();
+    console.log('open model used');
+    // this.fillForm();
     const modal = document.getElementById('modifyProductForm');
     modal.style.display = 'block';
   }
@@ -92,33 +93,33 @@ export class ModifyProductComponent implements OnInit {
     modal.style.display = 'none';
   }
 
-  private fillForm() {
-
-    console.log(this.product);
-
-
-    // this.modifyProductForm.setValue({
-    //   titleInput: this.product.title,
-    //   descriptionInput: this.product.description,
-    //   imageInput: this.product.images,
-    //   priceInput: this.product.price
-    // });
-
-    this.titleInput = this.product.title;
-    console.log(this.titleInput);
-    this.descriptionInput = this.product.description;
-    console.log(this.descriptionInput);
-    this.priceInput = this.product.price;
-    console.log(this.priceInput);
-
-
-    // this.modifyProductForm.controls.descriptionInput.setValue(this.product.description);
-    // console.log(this.modifyProductForm.controls.descriptionInput.value);
-    // this.modifyProductForm.controls.priceInput.setValue(this.product.price);
-    // console.log(this.modifyProductForm.controls.priceInput.value);
-
-    console.log(this.product);
-
-
-  }
+  // fillForm() {
+  //
+  //   console.log(this.product);
+  //
+  //
+  //   // this.modifyProductForm.setValue({
+  //   //   titleInput: this.product.title,
+  //   //   descriptionInput: this.product.description,
+  //   //   imageInput: this.product.images,
+  //   //   priceInput: this.product.price
+  //   // });
+  //
+  //   this.titleInput = this.product.title;
+  //   console.log(this.titleInput);
+  //   this.descriptionInput = this.product.description;
+  //   console.log(this.descriptionInput);
+  //   this.priceInput = this.product.price;
+  //   console.log(this.priceInput);
+  //
+  //
+  //   // this.modifyProductForm.controls.descriptionInput.setValue(this.product.description);
+  //   // console.log(this.modifyProductForm.controls.descriptionInput.value);
+  //   // this.modifyProductForm.controls.priceInput.setValue(this.product.price);
+  //   // console.log(this.modifyProductForm.controls.priceInput.value);
+  //
+  //   console.log( this.product);
+  //
+  //   console.log('after show');
+  // }
 }

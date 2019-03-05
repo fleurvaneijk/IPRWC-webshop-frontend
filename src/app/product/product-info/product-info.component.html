@@ -46,5 +46,5 @@
       <button (click)="addToCart(product)" class="btn-success add-to-cart">Toevoegen aan winkelwagen</button>
     </div>
   </article>
-  <app-modify-product></app-modify-product>
+  <app-modify-product *ngIf="product" [product]="product"></app-modify-product>
 </main>
