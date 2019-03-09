@@ -21,6 +21,6 @@
     </button>
   </div>
 
-  <div class="price">&euro;{{ product.price }}</div>
+  <div class="price">&euro;{{ product.price.toFixed(2) }}</div>
   <div class="total-price" id="item-total">€{{ (product.price * product.amount).toFixed(2) }}</div>
 </div>
