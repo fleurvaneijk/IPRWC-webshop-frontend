@@ -49,6 +49,6 @@ export class ShopComponent implements OnInit {
   }
 
   openModal () {
-    this.addProductModal.openModal();
+    AddProductComponent.openModal();
   }
 }

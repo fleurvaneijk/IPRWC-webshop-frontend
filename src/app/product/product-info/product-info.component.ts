@@ -91,6 +91,6 @@ export class ProductInfoComponent implements OnInit {
   }
 
   openModifyProductModal () {
-    this.modifyProductModal.openModal();
+    ModifyProductComponent.openModal();
   }
 }

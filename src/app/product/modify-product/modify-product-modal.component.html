@@ -37,7 +37,7 @@
           <i class="fas fa-envelope prefix grey-text"></i>
           <input style="display: none" type="file" name="images" (change)="onFileChanged($event);" #fileInput>
           <button class="btn btn-primary" style="margin:20px 0; padding: 5px;" (click)="fileInput.click()">Product foto selecteren</button>
-          <img [src]="product.images[0]" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" *ngIf="product.images[0]" alt="">
+          <img *ngIf="product.images[0]" [src]="product.images[0]" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" alt="">
         </div>
 
         <!----------- PRICE INPUT ------------->

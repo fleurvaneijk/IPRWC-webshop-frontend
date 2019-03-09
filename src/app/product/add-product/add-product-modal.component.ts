@@ -1,88 +1,46 @@
-import {Component, OnInit} from '@angular/core';
-import {Product} from '../product';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ProductService} from '../product.service';
-import {ShopComponent} from '../../shop/shop.component';
+import { Component } from '@angular/core';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product-modal.component.html',
   styleUrls: ['../../../../src/modal-styles.css']
 })
-export class AddProductComponent implements OnInit {
+export class AddProductComponent {
 
-  url;
-  imagePath;
+  constructor(private productService: ProductService) {
+  }
+
+  product: Product = new Product('', '', [], null);
   imgURL: any;
-  addProductForm: FormGroup = new FormGroup({titleInput: new FormControl()});
 
-  constructor(private productService: ProductService,
-              private formBuilder: FormBuilder) {
-  }
-
-  ngOnInit(): void {
-    this.generateAddProductForm();
-  }
-
-  private generateAddProductForm() {
-    this.addProductForm = this.formBuilder.group({
-      titleInput: ['', Validators.required],
-      descriptionInput: [''],
-      imageInput: [''],
-      priceInput: ['', Validators.required]
-    });
-  }
-
-  previewImage(files) {
-    if (files.length === 0) {
-      return;
-    }
-
-    const mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      alert('Alleen foto\'s worden ondersteund.');
-      return;
-    }
-
-    const reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-    };
+  static openModal () {
+    const modal = <HTMLElement>document.getElementById('addProductForm');
+    modal.style.display = 'block';
   }
 
   onFileChanged(event) {
+    const file = event.target.files[0];
+    const path = event.target.value;
+    this.previewImage(event);
+  }
+
+  previewImage(event) {
     if (event.target.files && event.target.files[0]) {
       const reader = new FileReader();
-
-      reader.onload = (event: ProgressEvent) => {
-        this.url = (<FileReader>event.target).result;
-        console.log(this.url);
+      reader.onload = (event: any) => {
+        this.imgURL = event.target.result;
+        this.product.images = [];
+        this.product.images.push(this.imgURL);
       };
-
       reader.readAsDataURL(event.target.files[0]);
     }
   }
 
   addProduct() {
-    let product: Product;
-    const title = this.addProductForm.controls.titleInput.value;
-    const description = this.addProductForm.controls.descriptionInput.value;
-    const price = this.addProductForm.controls.priceInput.value;
-    const images: string[] = [];
-    images.push(this.url);
-
-    product = new Product(title, description, images, price);
-
-    this.productService.addProduct(product);
-  }
-
-  openModal () {
-    const modal = <HTMLElement>document.getElementById('addProductForm');
-    modal.style.display = 'block';
-    this.addProductForm.controls.titleInput.setValue('hoi');
-    console.log(this.addProductForm.controls.titleInput.value);
+    this.product.price = <number><unknown>this.product.price.toFixed(2);
+    this.productService.addProduct(this.product);
   }
 
   closeModal () {

@@ -1,5 +1,5 @@
 <!-- "Add product" popup modal screen -->
-<form [formGroup]="addProductForm" class="modal fade" id="addProductForm">
+<form class="modal fade" id="addProductForm">
   <div class="modal-dialog" role="document">
   <div class="modal-content">
       <!-- Header of the "add product" popup screen -->
@@ -15,7 +15,7 @@
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="title-input">Product titel</label>
-          <input type="text" formControlName="titleInput" id="title-input" class="form-control validate">
+          <input type="text" [(ngModel)]="product.title" name="title" id="title-input" class="form-control validate">
           <span style="font-weight: bold;color: red; display: block;">
                   <!--<span *ngIf="addProductForm.controls.titleInput2.errors.required">Titel is vereist</span>-->
               </span>
@@ -25,7 +25,7 @@
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="description-input">Product omschrijving</label>
-          <input type="text" formControlName="descriptionInput" id="description-input" class="form-control validate">
+          <input type="text" [(ngModel)]="product.description" name="description" id="description-input" class="form-control validate">
           <span style="font-weight: bold;color: red; display: block;">
                   <!--<span *ngIf="addProductForm.controls.descriptionInput2.errors.required">Omschrijving is vereist</span>-->
               </span>
@@ -34,16 +34,16 @@
         <!----------- IMAGES INPUT ------------->
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input style="display: none" type="file" formControlName="imageInput" (change)="onFileChanged($event); previewImage(file.files)" #file #fileInput>
+          <input style="display: none" type="file" (change)="onFileChanged($event)" #file #fileInput>
           <button class="btn btn-primary" style="margin:20px 0; padding: 5px;" (click)="fileInput.click()">Product foto selecteren</button>
-          <img [src]="imgURL" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" *ngIf="imgURL" alt="">
+          <img *ngIf="imgURL" [src]="imgURL" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" alt="">
         </div>
 
         <!----------- PRICE INPUT ------------->
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="price-input">Prijs</label>
-          <input type="number" formControlName="priceInput" id="price-input" class="form-control validate">
+          <input type="number" [(ngModel)]="product.price" name="price" id="price-input" class="form-control validate">
           <span style="font-weight: bold;color: red; display: block;">
                   <!--<span *ngIf="addProductForm.controls.priceInput2.errors.required">Prijs is vereist</span>-->
               </span>
