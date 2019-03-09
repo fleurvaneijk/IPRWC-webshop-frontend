@@ -4,8 +4,6 @@ import {AuthorizationService} from '../shared/authorization.service';
 import {Router} from '@angular/router';
 import {error} from '@angular/compiler/src/util';
 import {UserService} from '../user/user.service';
-import {Product} from '../product/product';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {AddAdminComponent} from './add-admin/add-admin-modal.component';
 
 @Component({
@@ -20,8 +18,7 @@ export class AccountInfoComponent implements OnInit {
 
   constructor(private authService: AuthorizationService,
               private router: Router,
-              private userService: UserService,
-              private addAdminModal: AddAdminComponent) {
+              private userService: UserService) {
 
   }
 
@@ -75,6 +72,6 @@ export class AccountInfoComponent implements OnInit {
   }
 
   openModal () {
-    this.addAdminModal.openModal();
+    AddAdminComponent.openModal();
   }
 }

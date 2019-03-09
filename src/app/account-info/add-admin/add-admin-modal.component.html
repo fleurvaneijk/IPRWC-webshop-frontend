@@ -1,4 +1,4 @@
-<form [formGroup]="addAdminForm" class="modal fade" id="addAdminForm">
+<form class="modal fade" id="addAdminForm">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <!-- Header of the "add product" popup screen -->
@@ -13,19 +13,19 @@
 
         <!------------------------ Name -------------------------------->
         <label for="new-admin-name">Naam admin</label>
-        <input id="new-admin-name" class="form-control" type="text" required>
+        <input [(ngModel)]="admin.name" name="name" id="new-admin-name" type="text" required>
 
         <!------------------------ E-mail -------------------------------->
         <label for="new-admin-email">E-mail admin</label>
-        <input id="new-admin-email" type="text" required>
+        <input [(ngModel)]="admin.email" name="email" id="new-admin-email" type="text" required>
 
         <!------------------------ Password -------------------------------->
         <label for="new-admin-password">Wachtwoord admin</label>
-        <input id="new-admin-password" type="password" required minlength="8">
+        <input [(ngModel)]="password1" name="password1" id="new-admin-password" type="password" required minlength="8">
 
 
         <label for="new-admin-password-repeat">Wachtwoord admin (nogmaals)</label>
-        <input id="new-admin-password-repeat" type="password" required minlength="8">
+        <input [(ngModel)]="password2" name="password2" id="new-admin-password-repeat" type="password" required minlength="8">
 
 
       </div>

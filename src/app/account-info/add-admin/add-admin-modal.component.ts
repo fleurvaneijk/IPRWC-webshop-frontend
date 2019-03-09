@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder} from '@angular/forms';
 import {error} from '@angular/compiler/src/util';
 import {User} from '../../user/user';
 import {UserService} from '../../user/user.service';
@@ -12,45 +12,32 @@ import {UserService} from '../../user/user.service';
 })
 export class AddAdminComponent implements OnInit {
 
-  addAdminForm: FormGroup = new FormGroup({firstName: new FormControl()});
-  admin: User;
-
   constructor(private formBuilder: FormBuilder, private userService: UserService) {
+  }
 
+  admin: User = new User('', '', '', 'ADMIN');
+  password1: string;
+  password2: string;
+
+  static openModal () {
+    const modal = <HTMLElement>document.getElementById('addAdminForm');
+    modal.style.display = 'block';
   }
 
   ngOnInit(): void {
-    this.generateAddAdminForm();
   }
 
   addAdmin() {
-    const name = (<HTMLInputElement>document.getElementById('new-admin-name')).value;
-    const email = (<HTMLInputElement>document.getElementById('new-admin-email')).value;
-    let password;
-
-    if ((<HTMLInputElement>document.getElementById('new-admin-password')).value ===
-      (<HTMLInputElement>document.getElementById('new-admin-password-repeat')).value) {
-      password = (<HTMLInputElement>document.getElementById('new-admin-password')).value;
-    } else {
-      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
-    }
-
-    this.admin = new User(email, name, password, 'ADMIN');
+    this.checkPassword();
     this.userService.addAdmin(this.admin);
   }
 
-  private generateAddAdminForm() {
-    this.addAdminForm = this.formBuilder.group({
-      titleInput: ['', Validators.required],
-      descriptionInput: [''],
-      imageInput: [''],
-      priceInput: ['', Validators.required]
-    });
-  }
-
-  openModal () {
-    const modal = <HTMLElement>document.getElementById('addAdminForm');
-    modal.style.display = 'block';
+  private checkPassword() {
+    if (this.password1 === this.password2) {
+      this.admin.password = this.password1;
+    } else {
+      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+    }
   }
 
   closeModal () {
