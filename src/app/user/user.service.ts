@@ -52,6 +52,25 @@ export class UserService {
       );
   }
 
+  update(email: string, user: User) {
+    const uri = 'users/' + email;
+    this.api.post(uri, user).subscribe(
+      succes => {
+        alert('Uw gegevens zijn succesvol gewijzigd.');
+        this.login(user, false);
+        window.location.reload();
+      },
+      error => {
+        alert('Er ging iets mis! Uw gegevens zijn NIET gewijzigd.');
+      }
+    );
+  }
+
+  delete(email: string): Observable<any> {
+    const uri = 'users/' + email;
+    return this.api.delete(uri);
+  }
+
   public login(user: User, remember: boolean): void {
     this.authService.setAuthorization(user.email, user.password);
 
@@ -65,16 +84,6 @@ export class UserService {
         alert('Het inloggen is mislukt.');
       }
     );
-  }
-
-  update(email: string, editedUser: User): Observable<any> {
-    const uri = 'users/' + email;
-    return this.api.post(uri, editedUser);
-  }
-
-  delete(email: string): Observable<any> {
-    const uri = 'users/' + email;
-    return this.api.delete(uri);
   }
 
   public logout() {

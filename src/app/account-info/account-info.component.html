@@ -9,28 +9,30 @@
   <form class="account-info">
     <div class="container">
       <button (click)="logout()" class="logoutbtn btn-danger account-info">Uitloggen</button>
-      <h1>Welkom, {{ user.name }}!</h1>
+      <h1>Welkom, {{ name }}!</h1>
       <p>Vul onderstaand formulier in om uw gegevens te wijzigen.</p>
       <hr>
 
       <label for="name">Naam</label>
       <div class="wrapper">
-        <input class="account-info" type="text" placeholder="Vul uw naam in" id="name" required>
-        <p class="existing-user">{{ user.name }}</p>
+        <input [(ngModel)]="user.name" name="name" class="account-info" type="text" id="name" required>
       </div>
 
 
       <label for="email">E-mail</label>
       <div class="wrapper">
-        <input class="account-info" type="text" placeholder="Vul uw e-mail in" id="email" required>
-        <p class="existing-user">{{ user.email }}</p>
+        <input [(ngModel)]="user.email" name="email" class="account-info" type="text" id="email" required>
       </div>
 
-      <label for="password">Wachtwoord</label>
-      <input class="account-info" type="password" placeholder="Vul uw wachtwoord in" id="password" required>
+      <label for="password">Wachtwoord
+        <span class="help-password" title="Gebruik hier uw huidige wachtwoord, of kies een nieuw wachtwoord.">
+          <b style="font-size: 1.3em; margin-left: 290px">?</b>
+        </span>
+      </label>
+      <input [(ngModel)]="password1" name="password1" class="account-info" type="password" id="password" required>
 
       <label for="password-repeat">Wachtwoord (nogmaals)</label>
-      <input class="account-info" type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required>
+      <input [(ngModel)]="password2" name="password2" class="account-info" type="password" id="password-repeat" required>
 
       <button (click)="update()" type="submit" class="updatebtn account-info">Gegevens opslaan</button>
       <button (click)="deleteAccount()" type="submit" class="deletebtn account-info">Account verwijderen</button>

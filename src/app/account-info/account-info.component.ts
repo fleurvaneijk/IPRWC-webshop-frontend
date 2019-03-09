@@ -14,7 +14,10 @@ import {AddAdminComponent} from './add-admin/add-admin-modal.component';
 export class AccountInfoComponent implements OnInit {
 
   user: User;
-  editedUser: User;
+  name;
+  oldEmail;
+  password1: string;
+  password2: string;
 
   constructor(private authService: AuthorizationService,
               private router: Router,
@@ -27,30 +30,24 @@ export class AccountInfoComponent implements OnInit {
       this.router.navigate(['/login']);
     }
     this.user = <User>this.authService.getAuthenticator();
+    this.oldEmail = this.user.email;
+    this.name = this.user.name;
+    this.password1 = this.user.password;
   }
 
   update() {
-    const name = (<HTMLInputElement>document.getElementById('name')).value;
-    const email = (<HTMLInputElement>document.getElementById('email')).value;
-    let password;
+    this.checkPassword();
+    console.log(this.oldEmail);
+    console.log(this.user);
+    this.userService.update(this.oldEmail, this.user);
+  }
 
-    if ((<HTMLInputElement>document.getElementById('password')).value ===
-      (<HTMLInputElement>document.getElementById('password-repeat')).value) {
-      password = (<HTMLInputElement>document.getElementById('password')).value;
+  private checkPassword() {
+    if (this.password1 === this.password2) {
+      this.user.password = this.password1;
     } else {
       error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
     }
-    this.editedUser = new User(email, name, password, 'GUEST');
-    this.userService.update(this.user.email, this.editedUser).subscribe(
-      succes => {
-        alert('Uw gegevens zijn succesvol gewijzigd.');
-        this.userService.login(this.editedUser, false);
-        window.location.reload();
-      },
-      error => {
-        alert('Er ging iets mis! Uw gegevens zijn NIET gewijzigd.');
-      }
-    );
   }
 
   logout() {
