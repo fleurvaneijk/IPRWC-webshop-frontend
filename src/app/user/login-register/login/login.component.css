@@ -44,10 +44,6 @@ button {
   border-radius: 8px;
 }
 
-button:disabled {
-  background-color: #368A28;
-}
-
 button:hover {
   opacity:1;
 }

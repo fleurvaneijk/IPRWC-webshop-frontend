@@ -51,14 +51,12 @@ button.confirm {
   font-weight: bold;
   border: 2px solid black;
   background-color: #f3de00;
-  opacity: 1;
   padding: 14px 20px;
   cursor: pointer;
   border-radius: 8px;
 }
 
 button:disabled {
-  background-color: rgb(161, 161, 161);
   cursor: not-allowed;
 }
 
