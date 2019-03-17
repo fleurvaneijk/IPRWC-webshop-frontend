@@ -58,6 +58,10 @@ button.confirm {
   border-radius: 8px;
 }
 
+button:disabled {
+  background-color: rgb(161, 161, 161);
+  cursor: not-allowed;
+}
 
 input:invalid {
   color: red;
