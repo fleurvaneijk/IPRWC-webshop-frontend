@@ -44,7 +44,7 @@
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="price-input">Prijs</label>
-          <input type="number" [(ngModel)]="product.price" name="price" id="price-input" class="form-control validate">
+          <input type="number" [(ngModel)]="product.price" name="price" min="0.00" id="price-input" class="form-control validate">
           <span style="font-weight: bold;color: red; display: block;">
                   <!--<span *ngIf="modifyProductForm.controls.priceInput.errors.required">Prijs is vereist</span>-->
               </span>
@@ -52,7 +52,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button (click)="modifyProduct()" data-dismiss="modal" class="btn btn-default modify-product confirm">Product wijzigen</button>
+        <button [disabled]="" (click)="modifyProduct()" data-dismiss="modal" class="btn btn-default modify-product confirm">Product wijzigen</button>
       </div>
     </div>
   </div>

@@ -79,6 +79,23 @@ nav li a .routerLinkActive {
 /*------------- RESPONSIVENESS ------------*/
 @media (max-width: 670px) {
   img#logo{
-    visibility: hidden;
+    display: none;
+  }
+
+  nav ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav ul li {
+    display: block;
+  }
+
+  nav ul li a {
+    font-size: 0.7em;
+  }
+
+  nav ul li a:first-child {
+    margin-top: 2px;
   }
 }

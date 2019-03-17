@@ -14,7 +14,7 @@ form.modal {
 /* Modal Content/Box */
 .modal-content {
   background-color: #fefefe;
-  margin: 20% auto;
+  margin: 12% auto;
   border-radius: 8px;
   padding: 20px;
   padding-left: 30px;
@@ -57,4 +57,15 @@ button.confirm {
   cursor: pointer;
   border-radius: 8px;
 }
+
+
+input:invalid {
+  color: red;
+  display: block;
+  margin-top: 3px
+}
+
+/*input:focus:invalid {*/
+  /*box-shadow: none;*/
+/*}*/
 
