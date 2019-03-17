@@ -8,7 +8,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4 class="modal-title w-100 font-weight-bold">Product toevoegen</h4>
+        <h4 class="modal-title w-100 font-weight-bold">Product wijzigen</h4>
       </div>
 
       <div class="modal-body mx-3">
@@ -16,27 +16,27 @@
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="title-input">Product titel</label>
-          <input type="text" [(ngModel)]="product.title" name="title" id="title-input" class="form-control validate" ngModel>
-          <span style="font-weight: bold;color: red; display: block;">
-                  <!--<span *ngIf="modifyProductForm.controls.titleInput.errors.required">Titel is vereist</span>-->
-              </span>
+          <input type="text" #title="ngModel" [(ngModel)]="product.title" name="title" id="title-input" class="form-control validate" ngModel>
+          <span style="color: red; display: block; margin-top: 3px">
+            <span *ngIf="product.title.length == 0 && title.touched">Titel is vereist</span>
+          </span>
         </div>
 
         <!----------- DESCRIPTION INPUT ------------->
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="description-input">Product omschrijving</label>
-          <input type="text" [(ngModel)]="product.description" name="description" id="description-input" class="form-control validate">
-          <span style="font-weight: bold;color: red; display: block;">
-                  <!--<span *ngIf="modifyProductForm.controls.descriptionInput.errors.required">Omschrijving is vereist</span>-->
-              </span>
+          <input type="text" #description="ngModel" [(ngModel)]="product.description" name="description" id="description-input" class="form-control validate">
+          <span style="color: red; display: block; margin-top: 3px">
+            <span *ngIf="product.description.length == 0 && description.touched">Omschrijving is vereist</span>
+          </span>
         </div>
 
         <!----------- IMAGES INPUT ------------->
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input style="display: none" type="file" name="images" (change)="onFileChanged($event);" #fileInput>
-          <button class="btn btn-primary" style="margin:20px 0; padding: 5px;" (click)="fileInput.click()">Product foto selecteren</button>
+          <label for="description-input">Product afbeelding</label>
+          <input type="file" (change)="onFileChanged($event)" #file #fileInput>
           <img *ngIf="product.images[0]" [src]="product.images[0]" style="max-width:25%; margin:0 auto; margin-top:5px; display:block" alt="">
         </div>
 
@@ -44,15 +44,16 @@
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
           <label data-error="wrong" data-success="right" for="price-input">Prijs</label>
-          <input type="number" [(ngModel)]="product.price" name="price" min="0.00" id="price-input" class="form-control validate">
-          <span style="font-weight: bold;color: red; display: block;">
-                  <!--<span *ngIf="modifyProductForm.controls.priceInput.errors.required">Prijs is vereist</span>-->
-              </span>
+          <input type="number" #price="ngModel" [(ngModel)]="product.price" name="price" min="0.00" id="price-input" class="form-control validate">
+          <span style="color: red; display: block; margin-top: 3px">
+            <span *ngIf="product.price == null && price.touched">Prijs is vereist</span>
+          </span>
         </div>
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <button [disabled]="" (click)="modifyProduct()" data-dismiss="modal" class="btn btn-default modify-product confirm">Product wijzigen</button>
+        <button [disabled]="product.title.length == 0 || product.description.length == 0 || product.images.length == 0 || product.price == null"
+                (click)="modifyProduct()" data-dismiss="modal" class="btn btn-default modify-product confirm">Product wijzigen</button>
       </div>
     </div>
   </div>
