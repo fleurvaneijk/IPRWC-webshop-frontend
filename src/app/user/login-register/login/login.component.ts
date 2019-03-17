@@ -6,20 +6,20 @@ import { User } from '../../user';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css',
+              '../../../../../src/modal-styles.css'],
 })
 export class LoginComponent {
   user: User = new User();
+  email = '';
+  password = '';
 
   constructor(private userService: UserService) {
-
   }
 
   login() {
-    const email = (<HTMLInputElement>document.getElementById('login-email')).value;
-    const password = (<HTMLInputElement>document.getElementById('login-password')).value;
-    this.user.setEmail(email);
-    this.user.setPassword(password);
+    this.user.setEmail(this.email);
+    this.user.setPassword(this.password);
     this.userService.login(this.user, false);
   }
 }

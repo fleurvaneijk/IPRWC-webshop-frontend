@@ -7,17 +7,21 @@ form {
 
 * {box-sizing: border-box}
 
+label {
+  margin-top: 20px;
+}
+
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input, input {
   width: 100%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ddd;
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -32,12 +36,16 @@ button {
   background-color: #368A28;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 20px 0 8px;
   border: none;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
   border-radius: 8px;
+}
+
+button:disabled {
+  background-color: #368A28;
 }
 
 button:hover {

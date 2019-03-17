@@ -5,11 +5,14 @@
     <hr>
 
     <label>E-mail</label>
-    <input type="text" placeholder="Vul uw e-mail in" id="login-email" required>
+    <input type="text" #emailTag="ngModel" [(ngModel)]="email" name="email" placeholder="Vul uw e-mail in" id="login-email" required>
+    <span class="invalid-error" *ngIf="emailTag.invalid && emailTag.touched">E-mail is vereist</span>
+
 
     <label>Wachtwoord</label>
-    <input type="password" placeholder="Vul uw wachtwoord in" id="login-password" required>
+    <input type="password" #pwdTag="ngModel" [(ngModel)]="password" name="password" placeholder="Vul uw wachtwoord in" id="login-password" required>
+    <span class="invalid-error" *ngIf="password.length == 0 && pwdTag.touched">Wachtwoord is vereist</span>
 
-    <button (click)="login()" type="submit">Inloggen</button>
+    <button [disabled]="emailTag.invalid || pwdTag.invalid" (click)="login()" type="submit">Inloggen</button>
   </div>
 </form>
