@@ -13,7 +13,6 @@ export class UserService {
   constructor(private api: ApiService,
               private authService: AuthorizationService,
               private router: Router) {
-
   }
 
   public getAll(): Observable<User[]> {
@@ -27,34 +26,42 @@ export class UserService {
   }
 
   public addUser(user: User): void {
-    const uri = 'users';
-    this.api.post<void>(uri, user)
-      .subscribe(
-      data => {
-        alert('Het registreren is gelukt! U kan nu inloggen.');
-      },
-      error => {
-        alert('Het registreren is mislukt.');
-      }
-    );
+    if (this.getUser(user.email) == null) {
+      const uri = 'users';
+      this.api.post<void>(uri, user)
+        .subscribe(
+          data => {
+            alert('Het registreren is gelukt! U kan nu inloggen.');
+          },
+          error => {
+            alert('Het registreren is mislukt.');
+          }
+        );
+    } else {
+      alert('De ingevoerde e-mail is al in gebruik.');
+    }
   }
 
   public addAdmin(admin: User): void {
-    const uri = 'users/createAdmin';
-    this.api.post<void>(uri, admin).subscribe(
-        data => {
-          alert('Het registreren is gelukt! De nieuwe admin kan nu inloggen.');
-          window.location.reload();
-        },
-        error => {
-          alert('Het registreren is mislukt.');
-        }
-      );
+    if (this.getUser(admin.email) == null) {
+      const uri = 'users/createAdmin';
+      this.api.post<void>(uri, admin).subscribe(
+          data => {
+            alert('Het registreren is gelukt! De nieuwe admin kan nu inloggen.');
+            window.location.reload();
+          },
+          error => {
+            alert('Het registreren is mislukt.');
+          }
+        );
+    } else {
+      alert('De ingevoerde e-mail is al in gebruik.');
+    }
   }
 
   update(email: string, user: User) {
     const uri = 'users/' + email;
-    this.api.post(uri, user).subscribe(
+    this.api.post(uri, user).subscribe (
       succes => {
         alert('Uw gegevens zijn succesvol gewijzigd.');
         this.login(user, false);
@@ -74,8 +81,7 @@ export class UserService {
   public login(user: User, remember: boolean): void {
     this.authService.setAuthorization(user.email, user.password);
 
-    this.api.get<User>('users/me').subscribe
-    (
+    this.api.get<User>('users/me').subscribe (
       authenticator => {
         this.authService.storeAuthorization(authenticator, remember);
         this.goToAccountPage(authenticator);

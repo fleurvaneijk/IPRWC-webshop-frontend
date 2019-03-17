@@ -9,10 +9,10 @@
     <input id="name" #name="ngModel" [(ngModel)]="name1" name="name" class="form-control" type="text" placeholder="Vul uw naam in" required>
     <span class="invalid-error" *ngIf="name.invalid && name.touched">Naam is vereist</span>
 
+
     <!------------------------ E-mail -------------------------------->
     <label for="email">E-mail</label>
-    <input type="email" #email="ngModel" [(ngModel)]="email1" name="email" placeholder="Vul uw e-mail in" id="email"
-           required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <input type="email" #email="ngModel" [(ngModel)]="email1" name="email" placeholder="Vul uw e-mail in" id="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
     <span class="invalid-error" *ngIf="email1.length == 0 && email.touched">E-mail is vereist</span>
     <span class="invalid-error" *ngIf="email.invalid && email1.length != 0 && email.dirty">De e-mail is niet van het juiste formaat</span>
 
@@ -24,6 +24,7 @@
     <span class="invalid-error" *ngIf="password1.length < 8 && password1.length != 0 && password.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
 
 
+    <!--------------------- Password Repeat----------------------------->
     <label for="password-repeat">Wachtwoord (nogmaals)</label>
     <input type="password" #passwordrepeat="ngModel" [(ngModel)]="password2" name="password-repeat" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required minlength="8">
     <span class="invalid-error" *ngIf="password2.length == 0 && passwordrepeat.touched">Wachtwoord is vereist</span>
