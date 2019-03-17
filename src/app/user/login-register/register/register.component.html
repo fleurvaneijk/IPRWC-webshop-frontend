@@ -11,17 +11,24 @@
 
     <!------------------------ E-mail -------------------------------->
     <label for="email">E-mail</label>
-    <input type="text" #email="ngModel" [(ngModel)]="email1" name="email" placeholder="Vul uw e-mail in" id="email" required>
-    <span class="invalid-error" *ngIf="email.invalid && email.touched">E-mail is vereist</span>
+    <input type="email" #email="ngModel" [(ngModel)]="email1" name="email" placeholder="Vul uw e-mail in" id="email"
+           required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    <span class="invalid-error" *ngIf="email1.length == 0 && email.touched">E-mail is vereist</span>
+    <span class="invalid-error" *ngIf="email.invalid && email1.length != 0 && email.dirty">De e-mail is niet van het juiste formaat</span>
+
 
     <!------------------------ Password -------------------------------->
     <label for="password">Wachtwoord</label>
     <input type="password" #password="ngModel" [(ngModel)]="password1" name="password" placeholder="Vul uw wachtwoord in" id="password" required minlength="8">
-    <span class="invalid-error" *ngIf="password.invalid && password.touched">Wachtwoord is vereist</span>
+    <span class="invalid-error" *ngIf="password1.length == 0 && password.touched">Wachtwoord is vereist</span>
+    <span class="invalid-error" *ngIf="password1.length < 8 && password1.length != 0 && password.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
+
 
     <label for="password-repeat">Wachtwoord (nogmaals)</label>
     <input type="password" #passwordrepeat="ngModel" [(ngModel)]="password2" name="password-repeat" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required minlength="8">
-    <span class="invalid-error" *ngIf="passwordrepeat.invalid && passwordrepeat.touched">Wachtwoord is vereist</span>
+    <span class="invalid-error" *ngIf="password2.length == 0 && passwordrepeat.touched">Wachtwoord is vereist</span>
+    <span class="invalid-error" *ngIf="password2.length < 8 && password2.length != 0 && passwordrepeat.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
+
 
     <button [disabled]="name.invalid || email.invalid || password.invalid || passwordrepeat.invalid"
             (click)="register()" type="submit" class="signupbtn">Registreren</button>

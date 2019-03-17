@@ -13,9 +13,9 @@ import {error} from '@angular/compiler/src/util';
 export class RegisterComponent {
   user: User;
   name1;
-  email1;
-  password1;
-  password2;
+  email1 = '';
+  password1 = '';
+  password2 = '';
 
   constructor(private userService: UserService) {
 
