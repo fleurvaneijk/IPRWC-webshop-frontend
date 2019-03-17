@@ -52,7 +52,6 @@ button.confirm {
   border: 2px solid black;
   background-color: #f3de00;
   opacity: 1;
-  alignment: center;
   padding: 14px 20px;
   cursor: pointer;
   border-radius: 8px;
@@ -63,13 +62,13 @@ button:disabled {
   cursor: not-allowed;
 }
 
-input:invalid {
+span.invalid-error {
   color: red;
+  margin-top: 3px;
   display: block;
-  margin-top: 3px
+  font-size: 0.9em;
 }
 
-/*input:focus:invalid {*/
-  /*box-shadow: none;*/
-/*}*/
-
+input:invalid {
+  color: red;
+}

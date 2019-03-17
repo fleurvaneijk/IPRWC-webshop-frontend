@@ -7,10 +7,15 @@ import {error} from '@angular/compiler/src/util';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.css',
+              '../../../../../src/modal-styles.css'],
 })
 export class RegisterComponent {
   user: User;
+  name1;
+  email1;
+  password1;
+  password2;
 
   constructor(private userService: UserService) {
 

@@ -1,59 +1,37 @@
 <!-- "Add product" popup modal screen -->
-<form name="addProductForm" class="modal fade" id="addProductForm">
-  <div class="modal-dialog" role="document">
+<form name="addProductForm" class="modal" id="addProductForm">
   <div class="modal-content">
       <!-- Header of the "add product" popup screen -->
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title w-100 font-weight-bold">Product toevoegen</h4>
-      </div>
+    <button type="button" class="close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
 
-      <div class="modal-body mx-3">
-        <!----------- TITLE INPUT ------------->
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <label for="title-input">Product titel</label>
-          <input type="text" #title="ngModel" [(ngModel)]="product.title" name="title" id="title-input" class="form-control validate" required>
-          <span style="color: red; display: block; margin-top: 3px">
-            <span *ngIf="title.invalid && title.touched">Titel is vereist</span>
-          </span>
-        </div>
+    <h4><b>Product toevoegen</b></h4>
 
-        <!----------- DESCRIPTION INPUT ------------->
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <label for="description-input">Product omschrijving</label>
-          <input type="text" #description="ngModel" [(ngModel)]="product.description" name="description" id="description-input" class="form-control validate" required>
-          <span style="color: red; display: block; margin-top: 3px">
-            <span *ngIf="description.invalid && description.touched">Omschrijving is vereist</span>
-          </span>
-        </div>
+    <div class="modal-body">
+      <!----------- TITLE INPUT ------------->
+      <label for="title-input">Product titel</label>
+      <input type="text" #title="ngModel" [(ngModel)]="product.title" name="title" id="title-input" required>
+      <span class="invalid-error" *ngIf="title.invalid && title.touched">Titel is vereist</span>
 
-        <!----------- IMAGES INPUT ------------->
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <label for="description-input">Product afbeelding</label>
-          <input type="file" (change)="onFileChanged($event)" #file #fileInput required>
-          <img *ngIf="imgURL" [src]="imgURL" style="max-width:25%; margin: 10px 0 0 20px; display:block" alt="">
-        </div>
+      <!----------- DESCRIPTION INPUT ------------->
+      <label for="description-input">Product omschrijving</label>
+      <input type="text" #description="ngModel" [(ngModel)]="product.description" name="description" id="description-input" required>
+      <span class="invalid-error" *ngIf="description.invalid && description.touched">Omschrijving is vereist</span>
 
-        <!----------- PRICE INPUT ------------->
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <label for="price-input">Prijs</label>
-          <input type="number" #price="ngModel" [(ngModel)]="product.price" name="price" step="0.01" min="0.00" id="price-input" class="form-control validate" required>
-          <span style="color: red; display: block; margin-top: 3px">
-            <span *ngIf="product.price == null && price.touched">Prijs is vereist</span>
-          </span>
-        </div>
+      <!----------- IMAGES INPUT ------------->
+      <label for="description-input">Product afbeelding</label>
+      <input type="file" (change)="onFileChanged($event)" #file #fileInput required>
+      <img *ngIf="imgURL" [src]="imgURL" style="max-width:25%; margin: 10px 0 0 20px; display:block" alt="">
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button [disabled]="title.invalid || description.invalid || product.images.length == 0 || product.price == null"
-                (click)="addProduct()" data-dismiss="modal" class="btn btn-default add-product confirm">Product toevoegen</button>
-      </div>
+      <!----------- PRICE INPUT ------------->
+      <label for="price-input">Prijs</label>
+      <input type="number" #price="ngModel" [(ngModel)]="product.price" name="price" step="0.01" min="0.00" id="price-input" required>
+      <span class="invalid-error" *ngIf="product.price == null && price.touched">Prijs is vereist</span>
     </div>
+
+    <button [disabled]="title.invalid || description.invalid || product.images.length == 0 || product.price == null"
+            (click)="addProduct()" class="btn confirm">Product toevoegen
+    </button>
   </div>
 </form>

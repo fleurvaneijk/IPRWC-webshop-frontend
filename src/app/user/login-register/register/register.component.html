@@ -6,43 +6,25 @@
 
     <!------------------------ Name -------------------------------->
     <label for="name">Naam</label>
-    <input id="name" name="name" class="form-control" type="text" placeholder="Vul uw naam in" required>
-    <!--<span style="font-weight: bold;color: red; display: block;"-->
-          <!--*ngIf="name.invalid && (name.dirty || name.touched)">-->
-        <!--<span *ngIf="name.errors.required">Naam is vereist</span>-->
-    <!--</span>-->
-
-    <!--<div *ngIf="name.invalid && (name.dirty || name.touched)"-->
-         <!--class="alert alert-danger">-->
-
-      <!--<div *ngIf="name.errors.required">-->
-        <!--Name is required.-->
-      <!--</div>-->
-
-    <!--</div>-->
+    <input id="name" #name="ngModel" [(ngModel)]="name1" name="name" class="form-control" type="text" placeholder="Vul uw naam in" required>
+    <span class="invalid-error" *ngIf="name.invalid && name.touched">Naam is vereist</span>
 
     <!------------------------ E-mail -------------------------------->
     <label for="email">E-mail</label>
-    <input type="text" placeholder="Vul uw e-mail in" id="email" required>
-    <!--<span style="font-weight: bold;color: red; display: block;" *ngIf="!f.email.valid && f.email.dirty || submitted && f.email.errors" class="invalid-feedback">-->
-        <!--<span *ngIf="f.email.errors.required">E-mail is vereist</span>-->
-    <!--</span>-->
+    <input type="text" #email="ngModel" [(ngModel)]="email1" name="email" placeholder="Vul uw e-mail in" id="email" required>
+    <span class="invalid-error" *ngIf="email.invalid && email.touched">E-mail is vereist</span>
 
     <!------------------------ Password -------------------------------->
     <label for="password">Wachtwoord</label>
-    <input type="password" placeholder="Vul uw wachtwoord in" id="password" required minlength="8">
-    <!--<span style="font-weight: bold;color: red; display: block;" *ngIf="!f.password.valid && f.password.dirty || submitted && f.password.errors" class="invalid-feedback">-->
-        <!--<span *ngIf="f.password.errors.required">Wachtwoord is vereist</span>-->
-    <!--</span>-->
+    <input type="password" #password="ngModel" [(ngModel)]="password1" name="password" placeholder="Vul uw wachtwoord in" id="password" required minlength="8">
+    <span class="invalid-error" *ngIf="password.invalid && password.touched">Wachtwoord is vereist</span>
 
     <label for="password-repeat">Wachtwoord (nogmaals)</label>
-    <input type="password" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required minlength="8">
-    <!--<span style="font-weight: bold;color: red; display: block;" *ngIf="!f.password.valid && f.password.dirty || submitted && f.password.errors" class="invalid-feedback">-->
-        <!--<span *ngIf="f.password.errors.required">Wachtwoord is vereist</span>-->
-    <!--</span>-->
+    <input type="password" #passwordrepeat="ngModel" [(ngModel)]="password2" name="password-repeat" placeholder="Vul uw wachtwoord nogmaals in" id="password-repeat" required minlength="8">
+    <span class="invalid-error" *ngIf="passwordrepeat.invalid && passwordrepeat.touched">Wachtwoord is vereist</span>
 
-    <div class="clearfix">
-      <button (click)="register()" type="submit" class="signupbtn">Registreren</button>
-    </div>
+    <button [disabled]="name.invalid || email.invalid || password.invalid || passwordrepeat.invalid"
+            (click)="register()" type="submit" class="signupbtn">Registreren</button>
+
   </div>
 </form>
