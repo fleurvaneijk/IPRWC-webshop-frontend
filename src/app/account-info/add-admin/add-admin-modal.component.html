@@ -1,37 +1,43 @@
-<form class="modal fade" id="addAdminForm">
-  <div class="modal-dialog" role="document">
+<form name="addAdminForm" class="modal" id="addAdminForm">
     <div class="modal-content">
       <!-- Header of the "add product" popup screen -->
-      <div class="modal-header text-center">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="modal-title w-100 font-weight-bold">Admin toevoegen</h4>
-      </div>
+      <button type="button" class="close"(click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+      </button>
 
-      <div class="modal-body mx-3">
+      <h4><b>Admin toevoegen</b></h4>
+
+      <div class="modal-body">
 
         <!------------------------ Name -------------------------------->
         <label for="new-admin-name">Naam admin</label>
-        <input [(ngModel)]="admin.name" name="name" id="new-admin-name" type="text" required>
+        <input type="text" #name="ngModel" [(ngModel)]="admin.name" name="name" id="new-admin-name" required>
+        <span class="invalid-error" *ngIf="name.invalid && name.touched">Naam is vereist</span>
+
 
         <!------------------------ E-mail -------------------------------->
         <label for="new-admin-email">E-mail admin</label>
-        <input [(ngModel)]="admin.email" name="email" id="new-admin-email" type="text" required>
+        <input type="text" #email="ngModel" [(ngModel)]="admin.email" name="email" id="new-admin-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$">
+        <span class="invalid-error" *ngIf="admin.email.length == 0 && email.touched">E-mail is vereist</span>
+        <span class="invalid-error" *ngIf="email.invalid && admin.email.length != 0 && email.dirty">De e-mail is niet van het juiste formaat</span>
+
 
         <!------------------------ Password -------------------------------->
         <label for="new-admin-password">Wachtwoord admin</label>
-        <input [(ngModel)]="password1" name="password1" id="new-admin-password" type="password" required minlength="8">
+        <input type="password" #pwd1="ngModel" [(ngModel)]="password1" name="password1" id="new-admin-password" required minlength="8">
+        <span class="invalid-error" *ngIf="password1.length == 0 && pwd1.touched">Wachtwoord is vereist</span>
+        <span class="invalid-error" *ngIf="password1.length < 8 && password1.length != 0 && pwd1.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
 
 
+        <!--------------------- Password Repeat----------------------------->
         <label for="new-admin-password-repeat">Wachtwoord admin (nogmaals)</label>
-        <input [(ngModel)]="password2" name="password2" id="new-admin-password-repeat" type="password" required minlength="8">
+        <input type="password" #pwd2="ngModel" [(ngModel)]="password2" name="password2" id="new-admin-password-repeat" required minlength="8">
+        <span class="invalid-error" *ngIf="password2.length == 0 && pwd2.touched">Wachtwoord is vereist</span>
+        <span class="invalid-error" *ngIf="password2.length < 8 && password2.length != 0 && pwd2.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
 
 
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button (click)="addAdmin()" data-dismiss="modal" class="btn btn-default add-admin confirm">Admin toevoegen</button>
-      </div>
+        <button [disabled]="name.invalid || email.invalid || pwd1.invalid || pwd2.invalid"
+                (click)="addAdmin()" data-dismiss="modal" class="btn btn-default add-admin confirm">Admin toevoegen</button>
     </div>
   </div>
 </form>

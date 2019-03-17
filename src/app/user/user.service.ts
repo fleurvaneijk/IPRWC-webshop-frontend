@@ -22,41 +22,50 @@ export class UserService {
 
   public getUser(email: string) {
     const uri = 'users/' + email;
-    return this.api.get(uri, email);
+    return this.api.get<User>(uri);
   }
 
   public addUser(user: User): void {
-    if (this.getUser(user.email) == null) {
-      const uri = 'users';
-      this.api.post<void>(uri, user)
-        .subscribe(
-          data => {
-            alert('Het registreren is gelukt! U kan nu inloggen.');
-          },
-          error => {
-            alert('Het registreren is mislukt.');
-          }
-        );
-    } else {
-      alert('De ingevoerde e-mail is al in gebruik.');
-    }
+    this.getUser(user.email).subscribe
+    (data => {
+      if (data == null) {
+        const uri = 'users';
+        this.api.post<void>(uri, user)
+          .subscribe(
+            succes => {
+              alert('Het registreren is gelukt! U kan nu inloggen.');
+              window.location.reload();
+            },
+            error => {
+              alert('Het registreren is mislukt.');
+            }
+          );
+      } else {
+        alert('De ingevoerde e-mail is al in gebruik.');
+      }
+    });
   }
 
   public addAdmin(admin: User): void {
-    if (this.getUser(admin.email) == null) {
-      const uri = 'users/createAdmin';
-      this.api.post<void>(uri, admin).subscribe(
-          data => {
-            alert('Het registreren is gelukt! De nieuwe admin kan nu inloggen.');
-            window.location.reload();
-          },
-          error => {
-            alert('Het registreren is mislukt.');
-          }
-        );
-    } else {
-      alert('De ingevoerde e-mail is al in gebruik.');
-    }
+    console.log(admin);
+
+    this.getUser(admin.email).subscribe
+    (data => {
+      if (data == null) {
+        const uri = 'users/createAdmin';
+        this.api.post<void>(uri, admin).subscribe(
+            succes => {
+              alert('Het registreren is gelukt! U kan nu inloggen.');
+              window.location.reload();
+            },
+            error => {
+              alert('Het registreren is mislukt.');
+            }
+          );
+      } else {
+        alert('De ingevoerde e-mail is al in gebruik.');
+      }
+    });
   }
 
   update(email: string, user: User) {

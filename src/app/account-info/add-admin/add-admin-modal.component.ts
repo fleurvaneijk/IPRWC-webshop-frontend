@@ -16,8 +16,8 @@ export class AddAdminComponent implements OnInit {
   }
 
   admin: User = new User('', '', '', 'ADMIN');
-  password1: string;
-  password2: string;
+  password1 = '';
+  password2 = '';
 
   static openModal () {
     const modal = <HTMLElement>document.getElementById('addAdminForm');
@@ -28,15 +28,17 @@ export class AddAdminComponent implements OnInit {
   }
 
   addAdmin() {
-    this.checkPassword();
-    this.userService.addAdmin(this.admin);
+    if (this.checkPassword()) {
+      this.userService.addAdmin(this.admin);
+    }
   }
 
   private checkPassword() {
     if (this.password1 === this.password2) {
-      this.admin.password = this.password1;
+      this.admin.setPassword(this.password1);
+      return true;
     } else {
-      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+      alert('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
     }
   }
 
