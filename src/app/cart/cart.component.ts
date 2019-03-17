@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OrderedProduct} from './ordered-product';
 import {CartService} from './cart.service';
+import {AuthorizationService} from '../shared/authorization.service';
 
 @Component({
   selector: 'app-cart',
@@ -12,7 +13,7 @@ export class CartComponent implements OnInit {
   orderedProducts: OrderedProduct[] = [];
   totalPrice = 0;
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private authService: AuthorizationService) { }
 
   ngOnInit() {
     this.cartService.retrieveCartFromCookie();
@@ -29,8 +30,12 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    this.cartService.deleteCookie();
-    alert('Bedankt voor uw bestelling!');
-    window.location.reload();
+    if (this.authService.getAuthenticator() == null) {
+      alert('U moet eerst inloggen voor u kan bestellen');
+    } else {
+      this.cartService.deleteCookie();
+      alert('Bedankt voor uw bestelling!');
+      window.location.reload();
+    }
   }
 }
