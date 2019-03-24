@@ -16,7 +16,7 @@ export class AccountInfoComponent implements OnInit {
   user: User;
   name;
   oldEmail;
-  password1;
+  password1 = '';
   password2 = '';
 
   constructor(private authService: AuthorizationService,
@@ -32,21 +32,23 @@ export class AccountInfoComponent implements OnInit {
     this.user = <User>this.authService.getAuthenticator();
     this.oldEmail = this.user.email;
     this.name = this.user.name;
-    this.password1 = this.user.password;
   }
 
   update() {
-    this.checkPassword();
-    console.log(this.oldEmail);
-    console.log(this.user);
-    this.userService.update(this.oldEmail, this.user);
+    if (this.checkPassword()) {
+      console.log(this.oldEmail);
+      console.log(this.user);
+      this.userService.update(this.oldEmail, this.user);
+    }
   }
 
   private checkPassword() {
     if (this.password1 === this.password2) {
       this.user.password = this.password1;
+      return true;
     } else {
-      error('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+      alert('De twee ingevoerde wachtwoorden zijn niet hetzelfde');
+      return false;
     }
   }
 

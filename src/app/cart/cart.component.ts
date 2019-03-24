@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {OrderedProduct} from './ordered-product';
 import {CartService} from './cart.service';
 import {AuthorizationService} from '../shared/authorization.service';
+import {stringify} from 'querystring';
 
 @Component({
   selector: 'app-cart',
@@ -34,7 +35,8 @@ export class CartComponent implements OnInit {
       alert('U moet eerst inloggen voor u kan bestellen');
     } else {
       this.cartService.deleteCookie();
-      alert('Bedankt voor uw bestelling!');
+      // const message = 'U heeft' + stringify(this.totalPrice) + 'betaald. Bedankt voor uw bestelling!';
+      alert('U heeft €' + <string><undefined>this.totalPrice + ' betaald. Bedankt voor uw bestelling!');
       window.location.reload();
     }
   }
