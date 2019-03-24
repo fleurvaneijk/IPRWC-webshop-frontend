@@ -14,27 +14,32 @@
       <hr>
 
       <label for="name">Naam</label>
-      <div class="wrapper">
-        <input [(ngModel)]="user.name" name="name" class="account-info" type="text" id="name" required>
-      </div>
+      <input #nameTag="ngModel" [(ngModel)]="user.name" name="name" class="account-info" type="text" id="name" required>
+      <span class="invalid-error" *ngIf="nameTag.invalid && nameTag.touched">Naam is vereist</span>
 
 
       <label for="email">E-mail</label>
-      <div class="wrapper">
-        <input [(ngModel)]="user.email" name="email" class="account-info" type="text" id="email" required>
-      </div>
+      <input  #email="ngModel" [(ngModel)]="user.email" name="email" class="account-info" type="text" id="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,4}$">
+      <span class="invalid-error" *ngIf="user.email.length == 0 && email.touched">E-mail is vereist</span>
+      <span class="invalid-error" *ngIf="email.invalid && user.email.length != 0 && email.dirty">De e-mail is niet van het juiste formaat</span>
 
       <label for="password">Wachtwoord
         <span class="help-password" title="Gebruik hier uw huidige wachtwoord, of kies een nieuw wachtwoord.">
           <b style="font-size: 1.3em; margin-left: 290px">?</b>
         </span>
       </label>
-      <input [(ngModel)]="password1" name="password1" class="account-info" type="password" id="password" required>
+      <input #pwd1="ngModel" [(ngModel)]="password1" name="password1" class="account-info" type="password" id="password" minlength="8">
+      <span class="invalid-error" *ngIf="password1.length == 0 && pwd1.touched">Wachtwoord is vereist</span>
+      <span class="invalid-error" *ngIf="password1.length < 8 && password1.length != 0 && pwd1.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
 
       <label for="password-repeat">Wachtwoord (nogmaals)</label>
-      <input [(ngModel)]="password2" name="password2" class="account-info" type="password" id="password-repeat" required>
+      <input #pwd2="ngModel" [(ngModel)]="password2" name="password2" class="account-info" type="password" id="password-repeat" required minlength="8">
+      <span class="invalid-error" *ngIf="password2.length == 0 && pwd2.touched">Wachtwoord is vereist</span>
+      <span class="invalid-error" *ngIf="password2.length < 8 && password2.length != 0 && pwd2.dirty">Het wachtwoord moet minimaal 8 karakters lang zijn</span>
 
-      <button (click)="update()" type="submit" class="updatebtn account-info">Gegevens opslaan</button>
+      <button [disabled]="nameTag.invalid || email.invalid || pwd1.invalid || pwd2.invalid"
+              (click)="update()" type="submit" class="updatebtn account-info">Gegevens opslaan</button>
+
       <button (click)="deleteAccount()" type="submit" class="deletebtn account-info">Account verwijderen</button>
     </div>
   </form>

@@ -1,22 +1,12 @@
-/*---------------- WHOLE PAGE ----------------*/
-main{
-  position: relative;
-  z-index: 0;
-}
-
 /*---------------- ACCOUNT INFO ----------------*/
 /* Bordered form */
 form.account-info {
   background-color: whitesmoke;
   border-radius: 8px;
-  width: 800px;
+  max-width: 800px;
   margin-left: 100px;
 }
 
-div.wrapper {
-  overflow: hidden;
-  display: flex;
-}
 input.account-info p.existing-user {
   display: inline-block;
   float: left;
@@ -29,16 +19,20 @@ p.existing-user {
   color: #636363;
 }
 
+label {
+ margin-top: 22px;
+}
+
 /* Full-width input fields */
-input[type=text].account-info, input[type=password].account-info {
+input.account-info {
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0;
   display: inline-block;
   border: 1px solid #ddd;
   background: #f1f1f1;
 }
 
-input[type=text].account-info:focus, input[type=password].account-info:focus {
+input.account-info:focus {
   background-color: #ddd;
   outline: none;
 }
@@ -79,6 +73,23 @@ button.account-info:hover {
   padding: 16px;
 }
 
+/*----------- INPUT VALIDATION ----------*/
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+span.invalid-error {
+  color: red;
+  margin-top: 3px;
+  display: block;
+  font-size: 0.9em;
+}
+
+input:invalid {
+  color: red;
+}
+
 /*----------- ADD ADMIN BUTTON ----------*/
 
 button.add-admin {
@@ -104,9 +115,11 @@ li:hover {
 
 /*-------------------- RESPONSIVENESS --------------------*/
 /* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
+@media (max-width: 670px) {
+  form.account-info {
+    margin-left: 0;
+  }
+  button.add-admin {
+    margin-left: 0px;
   }
 }
-

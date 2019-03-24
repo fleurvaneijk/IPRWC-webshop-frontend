@@ -16,8 +16,8 @@ export class AccountInfoComponent implements OnInit {
   user: User;
   name;
   oldEmail;
-  password1: string;
-  password2: string;
+  password1;
+  password2 = '';
 
   constructor(private authService: AuthorizationService,
               private router: Router,
