@@ -16,3 +16,8 @@ http://188.241.150.31/#/login
 http://188.241.150.31/#/cart
 
 http://188.241.150.31/#/account -- alleen wanneer ingelogd bereikbaar
+
+
+# Udemy Angular Certificate
+
+Bevind zich in de alle bovenste map, als JPG en PDF.
